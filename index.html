@@ -424,7 +424,7 @@ function recordVisible(r) {
 }
 
 function cardHTML(r) {
-  const pageLink = `${r.type}-${r.id}.html`;
+  const detailLink = `detail.html?type=${r.type}&id=${r.id}`;
   return `
     <article class="card">
       <div class="card-top">
@@ -440,7 +440,7 @@ function cardHTML(r) {
       </div>
       <div class="footer-line">
         ${confBadge('high')}
-        <a class="link know-more" href="${pageLink}">Know More</a>
+        <a class="link know-more" href="${detailLink}">Know More</a>
         <a class="link" href="${r.related_link}" target="_blank" rel="noopener noreferrer">Related link</a>
       </div>
     </article>
