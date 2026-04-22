@@ -208,11 +208,11 @@ h1 em {font-style:italic;color:#cfcfcf}
 .meta {
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
-  color:#bdbdbd;
+  color:#d0d0d0;
   line-height:1.6;
 }
 .desc {
-  color:#c8c8c8;
+  color:#e8e8e8;
   font-size:13.5px;
   line-height:1.72;
   flex:1;
@@ -388,8 +388,8 @@ function renderStats() {
   document.getElementById('statKumaon').textContent = s.kumaon;
 }
 
-function badgeKind(kind) {
-  return `<span class="kind kind-${kind}">${kind === 'personality' ? 'Personality' : 'Event'}</span>`;
+function badgeKind(type) {
+  return `<span class="kind kind-${type}">${type === 'personality' ? 'Personality' : 'Event'}</span>`;
 }
 function confBadge(c) {
   if(c === 'high') return '<span class="badge conf-high">✓ Documented theme</span>';
@@ -402,38 +402,38 @@ function regionLabel(region) {
     both:'Kumaon & Garhwal',
     foothills:'Haridwar / Rishikesh / Foothills'
   };
-  return map[region] || region;
+  return map[region.toLowerCase()] || region;
 }
 function themeLabel(domain) {
   const map = {
-    politics:'Public leadership',
-    environment:'Environment',
-    social:'Social reform',
-    education:'Education',
-    rights:'Rights / protest'
+    Politics:'Public leadership',
+    Environment:'Environment',
+    Social:'Social reform',
+    Education:'Education',
+    Rights:'Rights / protest'
   };
   return map[domain] || domain;
 }
 function recordVisible(r) {
-  const regionOk = activeRegion === 'all' || r.region === activeRegion;
+  const regionOk = activeRegion === 'all' || r.region.toLowerCase() === activeRegion;
   const themeOk = activeTheme === 'all' || r.domain === activeTheme;
   const q = searchTerm.trim().toLowerCase();
-  const hay = `${r.name} ${r.place} ${r.years} ${r.short} ${r.desc}`.toLowerCase();
+  const hay = `${r.name} ${r.district_or_area} ${r.years} ${r.headline} ${r.summary}`.toLowerCase();
   const searchOk = !q || hay.includes(q);
   return regionOk && themeOk && searchOk;
 }
 
 function cardHTML(r) {
-  const pageLink = `${r.kind}-${r.id}.html`;
+  const pageLink = `${r.type}-${r.id}.html`;
   return `
     <article class="card">
       <div class="card-top">
-        <div class="ref">${r.id}<br>${r.place}</div>
-        ${badgeKind(r.kind)}
+        <div class="ref">${r.id}<br>${r.district_or_area || 'N/A'}</div>
+        ${badgeKind(r.type)}
       </div>
-      <a class="title" href="${r.href}" target="_blank" rel="noopener noreferrer">${r.name}</a>
-      <div class="meta">${r.short}<br>${r.years}</div>
-      <div class="desc">${r.desc}</div>
+      <a class="title" href="${r.related_link}" target="_blank" rel="noopener noreferrer">${r.name}</a>
+      <div class="meta">${r.headline || 'N/A'}<br>${r.years}</div>
+      <div class="desc">${r.summary || 'N/A'}</div>
       <div class="tags">
         <span class="tag">${regionLabel(r.region)}</span>
         <span class="tag">${themeLabel(r.domain)}</span>
@@ -441,7 +441,7 @@ function cardHTML(r) {
       <div class="footer-line">
         ${confBadge('high')}
         <a class="link know-more" href="${pageLink}">Know More</a>
-        <a class="link" href="${r.href}" target="_blank" rel="noopener noreferrer">Related link</a>
+        <a class="link" href="${r.related_link}" target="_blank" rel="noopener noreferrer">Related link</a>
       </div>
     </article>
   `;
