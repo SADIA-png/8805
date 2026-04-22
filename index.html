@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,23 +8,18 @@
 <style>
 :root {
   --bg:#FFF8F0;
-  --surface:#C08552;
-  --card:#8C5A3C;
-  --card-hover:#4B2E2B;
-  --line:#C08552;
-  --line-soft:#8C5A3C;
-  --text:#4B2E2B;
-  --text-soft:#8C5A3C;
-  --muted:#C08552;
-  --muted-2:#4B2E2B;
-  --accent:#FFF8F0;
-  --chip:#C08552;
-  --white:#FFF8F0;
+  --primary:#6E3B3B;
+  --secondary:#AC3F21;
+  --accent:#BE6A15;
+  --highlight:#F3CF7A;
+  --text-dark:#6E3B3B;
+  --text-light:#AC3F21;
+  --border:#BE6A15;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
   background:var(--bg);
-  color:var(--text-soft);
+  color:var(--text-dark);
   font-family:'Source Serif 4',Georgia,serif;
   min-height:100vh;
   line-height:1.7;
@@ -34,63 +28,98 @@ body::before {
   content:"";
   position:fixed; inset:0;
   background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    linear-gradient(rgba(110,59,59,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110,59,59,.02) 1px, transparent 1px);
   background-size:40px 40px;
   pointer-events:none;
 }
 .page {max-width:1320px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
-.header {padding:58px 0 30px;border-bottom:1px solid var(--line)}
+.header {padding:58px 0 30px;border-bottom:2px solid var(--border)}
 .eyebrow {display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.eyebrow-line {flex:1;height:1px;background:linear-gradient(to right,#5a5a5a,transparent)}
+.eyebrow-line {flex:1;height:1px;background:linear-gradient(to right,var(--secondary),transparent)}
 .eyebrow-text {
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
   letter-spacing:.22em;
-  color:var(--muted);
+  color:var(--text-dark);
   text-transform:uppercase;
+  font-weight:600;
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:#4B2E2B;
+  color:var(--primary);
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
   max-width:950px;
 }
-h1 em {font-style:italic;color:#cfcfcf}
+h1 em {font-style:italic;color:var(--accent)}
 .subtitle {
   margin-top:14px;
   max-width:780px;
-  color:var(--muted);
+  color:var(--text-light);
   font-style:italic;
   font-size:16px;
+}
+.lang-top {
+  display:flex;gap:10px;margin:20px 0;
+  align-items:center;
+}
+.lang-label {
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  color:var(--text-dark);
+  text-transform:uppercase;
+  font-weight:600;
+}
+.lang-btn {
+  background:transparent;
+  border:2px solid var(--border);
+  color:var(--text-dark);
+  padding:8px 14px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+  font-weight:600;
+}
+.lang-btn:hover {
+  background:var(--highlight);
+  border-color:var(--accent);
+}
+.lang-btn.on {
+  background:var(--secondary);
+  color:#FFF8F0;
+  border-color:var(--secondary);
 }
 .note {
   margin-top:22px;
   max-width:900px;
-  background:rgba(255,255,255,.04);
-  border-left:3px solid #767676;
+  background:rgba(190,106,21,.08);
+  border-left:4px solid var(--accent);
   padding:14px 18px;
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
-  color:var(--muted);
+  color:var(--text-dark);
   line-height:1.8;
 }
 .stats {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:1px;
-  background:var(--line);
+  gap:2px;
+  background:var(--border);
   margin-top:28px;
 }
-.stat {background:var(--surface);padding:18px 20px}
+.stat {background:var(--bg);padding:18px 20px;border:1px solid var(--border)}
 .stat-num {
   display:block;
   font-family:'Playfair Display',serif;
   font-size:36px;
-  color:var(--white);
+  color:var(--primary);
   line-height:1;
+  font-weight:600;
 }
 .stat-label {
   display:block;
@@ -99,11 +128,12 @@ h1 em {font-style:italic;color:#cfcfcf}
   font-size:9px;
   letter-spacing:.16em;
   text-transform:uppercase;
-  color:var(--muted);
+  color:var(--text-dark);
+  font-weight:600;
 }
 .controls {
   padding:18px 0;
-  border-bottom:1px solid var(--line);
+  border-bottom:2px solid var(--border);
   display:flex;flex-wrap:wrap;gap:12px;align-items:center
 }
 .ctl-label {
@@ -111,12 +141,13 @@ h1 em {font-style:italic;color:#cfcfcf}
   font-size:9px;
   letter-spacing:.18em;
   text-transform:uppercase;
-  color:var(--muted);
+  color:var(--text-dark);
+  font-weight:600;
 }
 .btn {
   background:transparent;
-  border:1px solid var(--line-soft);
-  color:var(--muted);
+  border:2px solid var(--border);
+  color:var(--text-dark);
   padding:6px 12px;
   font-family:'IBM Plex Mono',monospace;
   font-size:9px;
@@ -124,25 +155,30 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   cursor:pointer;
   transition:.2s ease;
+  font-weight:600;
 }
-.btn:hover,.btn.on {
-  background:var(--white);
-  border-color:var(--white);
-  color:#0d0d0d;
+.btn:hover {
+  background:var(--highlight);
+  border-color:var(--accent);
+}
+.btn.on {
+  background:var(--secondary);
+  border-color:var(--secondary);
+  color:#FFF8F0;
 }
 .search-wrap {padding:16px 0 8px}
 .search {
   width:min(100%,430px);
-  background:var(--surface);
-  border:1px solid var(--line-soft);
-  color:var(--white);
+  background:#FFF8F0;
+  border:2px solid var(--border);
+  color:var(--text-dark);
   padding:10px 14px;
   font-family:'Source Serif 4',serif;
   font-size:15px;
   outline:none;
 }
-.search:focus {border-color:#b8b8b8}
-.search::placeholder {color:var(--muted);font-style:italic}
+.search:focus {border-color:var(--secondary)}
+.search::placeholder {color:var(--text-light);font-style:italic}
 .section-head {
   margin:36px 0 14px;
   display:flex;align-items:center;gap:14px
@@ -150,40 +186,44 @@ h1 em {font-style:italic;color:#cfcfcf}
 .section-title {
   font-family:'Playfair Display',serif;
   font-size:26px;
-  color:var(--white);
+  color:var(--primary);
   font-style:italic;
+  font-weight:600;
 }
-.section-line {flex:1;height:1px;background:var(--line)}
+.section-line {flex:1;height:2px;background:var(--border)}
 .section-count {
   font-family:'IBM Plex Mono',monospace;
   font-size:9px;
-  color:var(--muted);
+  color:var(--text-dark);
   letter-spacing:.12em;
   text-transform:uppercase;
+  font-weight:600;
 }
 .grid {
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
-  gap:1px;
-  background:var(--line);
+  gap:2px;
+  background:var(--border);
 }
 .card {
-  background:var(--card);
+  background:#FFF8F0;
   padding:22px;
   display:flex;
   flex-direction:column;
   gap:10px;
   transition:background .2s ease, transform .2s ease;
+  border:1px solid var(--border);
 }
-.card:hover {background:var(--card-hover);transform:translateY(-1px)}
+.card:hover {background:var(--highlight);transform:translateY(-2px)}
 .card-top {
   display:flex;justify-content:space-between;gap:12px;align-items:flex-start
 }
 .ref {
   font-family:'IBM Plex Mono',monospace;
   font-size:9px;
-  color:#8e8e8e;
+  color:var(--text-light);
   line-height:1.45;
+  font-weight:600;
 }
 .kind {
   display:inline-block;
@@ -191,28 +231,31 @@ h1 em {font-style:italic;color:#cfcfcf}
   font-size:8px;
   letter-spacing:.1em;
   text-transform:uppercase;
-  padding:3px 8px;
-  border:1px solid currentColor;
+  padding:4px 8px;
+  border:2px solid var(--secondary);
   flex-shrink:0;
+  color:var(--secondary);
+  font-weight:600;
 }
-.kind-personality {color:#d9d9d9}
-.kind-event {color:#bcbcbc}
+.kind-event {border-color:var(--accent);color:var(--accent)}
 .title {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:var(--primary);
   font-size:19px;
   line-height:1.25;
   text-decoration:none;
+  font-weight:600;
 }
 .title:hover {text-decoration:underline}
 .meta {
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
-  color:#d0d0d0;
+  color:var(--text-light);
   line-height:1.6;
+  font-weight:600;
 }
 .desc {
-  color:#e8e8e8;
+  color:var(--text-dark);
   font-size:13.5px;
   line-height:1.72;
   flex:1;
@@ -223,45 +266,47 @@ h1 em {font-style:italic;color:#cfcfcf}
   font-size:8px;
   letter-spacing:.1em;
   text-transform:uppercase;
-  padding:3px 7px;
+  padding:4px 8px;
   border-radius:2px;
-  background:var(--chip);
-  color:#d4d4d4;
-  border:1px solid #454545;
+  background:var(--highlight);
+  color:var(--primary);
+  border:1px solid var(--accent);
+  font-weight:600;
 }
 .footer-line {
   display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
-  padding-top:10px;border-top:1px solid var(--line)
+  padding-top:10px;border-top:1px solid var(--border)
 }
 .badge {
   font-family:'IBM Plex Mono',monospace;
   font-size:8px;
   letter-spacing:.1em;
   text-transform:uppercase;
+  font-weight:600;
+  color:var(--secondary);
 }
-.conf-high {color:#f1f1f1}
-.conf-med {color:#bbbbbb}
 .link {
-  color:var(--white);
+  color:var(--secondary);
   text-decoration:none;
   font-family:'IBM Plex Mono',monospace;
   font-size:9px;
   letter-spacing:.1em;
   text-transform:uppercase;
-  border-bottom:1px solid transparent;
+  border-bottom:2px solid transparent;
+  font-weight:600;
 }
-.link:hover {border-color:var(--white)}
+.link:hover {border-color:var(--secondary)}
 .link::after {content:" ↗"}
 .footer {
   margin:46px 0 54px;
-  border-top:1px solid var(--line);
+  border-top:2px solid var(--border);
   padding-top:22px;
-  color:var(--muted);
+  color:var(--text-dark);
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
   line-height:1.9;
 }
-.footer strong {color:#d6d6d6}
+.footer strong {color:var(--primary);font-weight:600}
 @media (max-width:640px) {
   .grid{grid-template-columns:1fr}
   h1{font-size:30px}
@@ -273,45 +318,38 @@ h1 em {font-style:italic;color:#cfcfcf}
   <header class="header">
     <div class="eyebrow">
       <div class="eyebrow-line"></div>
-      <div class="eyebrow-text">Research Catalogue · Uttarakhand Himalayan Region · Monochrome Edition</div>
-      <div class="eyebrow-line" style="background:linear-gradient(to left,#5a5a5a,transparent)"></div>
+      <div class="eyebrow-text">Research Catalogue · Uttarakhand Himalayan Region</div>
+      <div class="eyebrow-line"></div>
     </div>
-    <h1>Uttarakhand Himalayan <em>Reform Archive</em><br>Personalities & Social Reform Events</h1>
-    <p class="subtitle">A monochrome archival-style research interface inspired by collection websites, now split into two separate catalogue sections: influential personalities and major social reform events from the Uttarakhand Himalayan region.</p>
-    <div class="note">
-      UPDATED UX: dual sections instead of mixed records · monochrome black/white palette · clickable titles and related links · search + filters preserved.
-      HYPERLINKS: cards now include web links for related reading/search so the interface feels more like a living research catalogue.
-    </div>
-
-    <div class="stats">
-      <div class="stat"><span class="stat-num" id="statTotal">0</span><span class="stat-label">Total Records</span></div>
-      <div class="stat"><span class="stat-num" id="statPersons">0</span><span class="stat-label">Personalities</span></div>
-      <div class="stat"><span class="stat-num" id="statEvents">0</span><span class="stat-label">Events</span></div>
-      <div class="stat"><span class="stat-num" id="statPre1947">0</span><span class="stat-label">Pre-1947 Births</span></div>
-      <div class="stat"><span class="stat-num" id="statGarhwal">0</span><span class="stat-label">Garhwal-linked</span></div>
-      <div class="stat"><span class="stat-num" id="statKumaon">0</span><span class="stat-label">Kumaon-linked</span></div>
+    <h1>Uttarakhand Himalayan <em>Reform Archive</em></h1>
+    <p class="subtitle">Personalities & Social Reform Events</p>
+    
+    <div class="lang-top">
+      <span class="lang-label">Language:</span>
+      <button class="lang-btn on" id="lang-en">English</button>
+      <button class="lang-btn" id="lang-hi">हिंदी</button>
     </div>
   </header>
 
   <div class="controls">
     <span class="ctl-label">Region</span>
     <button class="btn on" data-region="all">All</button>
-    <button class="btn" data-region="garhwal">Garhwal</button>
-    <button class="btn" data-region="kumaon">Kumaon</button>
-    <button class="btn" data-region="both">Both</button>
-    <button class="btn" data-region="foothills">Haridwar / Foothills</button>
+    <button class="btn" data-region="Garhwal">Garhwal</button>
+    <button class="btn" data-region="Kumaon">Kumaon</button>
+    <button class="btn" data-region="Both">Both</button>
+    <button class="btn" data-region="Haridwar / Rishikesh / Foothills">Haridwar / Foothills</button>
 
     <span class="ctl-label" style="margin-left:8px">Theme</span>
     <button class="btn on" data-theme="all">All</button>
-    <button class="btn" data-theme="social">Social Reform</button>
-    <button class="btn" data-theme="rights">Rights / Protest</button>
-    <button class="btn" data-theme="environment">Environment</button>
-    <button class="btn" data-theme="education">Education</button>
-    <button class="btn" data-theme="politics">Public Leadership</button>
+    <button class="btn" data-theme="Social Reform">Social Reform</button>
+    <button class="btn" data-theme="Rights and Protest">Rights / Protest</button>
+    <button class="btn" data-theme="Environment">Environment</button>
+    <button class="btn" data-theme="Education">Education</button>
+    <button class="btn" data-theme="Public Leadership">Public Leadership</button>
   </div>
 
   <div class="search-wrap">
-    <input id="search" class="search" type="text" placeholder="Search names, places, domains, movements, years…" />
+    <input id="search" class="search" type="text" placeholder="Search names, places, domains, years…" />
   </div>
 
   <div class="section-head">
@@ -329,9 +367,8 @@ h1 em {font-style:italic;color:#cfcfcf}
   <div id="eventGrid" class="grid"></div>
 
   <div class="footer">
-    <strong>Implementation notes</strong><br>
-    This page remains a single HTML file with embedded CSS and JavaScript, so it runs directly in a browser or can be dropped into Replit / Cursor / a static site.
-    The layout logic is adapted from your uploaded archival catalogue code, but the structure is now more editorially separated: personalities first, events second. Some direct links were validated by search for notable entries such as Govind Ballabh Pant, Chipko, and Gaura Devi, and the rest use structured Wikipedia search links for discoverability. citeturn280740search0turn280740search2turn280740search3
+    <strong>Language-separated archive</strong><br>
+    Select language at the top to view content. This page dynamically loads data from JSON and displays content in the selected language only.
   </div>
 </div>
 
@@ -339,6 +376,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 let allRecords = [];
 let personalities = [];
 let events = [];
+let currentLanguage = 'en';
 
 async function loadData() {
   try {
@@ -359,7 +397,6 @@ function renderAll() {
   renderSection(events, 'eventGrid', 'eventCount');
 }
 
-
 let activeRegion = 'all';
 let activeTheme = 'all';
 let searchTerm = '';
@@ -369,12 +406,6 @@ function stats() {
     total: allRecords.length,
     persons: personalities.length,
     events: events.length,
-    pre1947: personalities.filter(p => {
-      const m = p.years.match(/(\d{4})/);
-      return m && parseInt(m[1],10) < 1947;
-    }).length,
-    garhwal: allRecords.filter(r => r.region === 'garhwal').length,
-    kumaon: allRecords.filter(r => r.region === 'kumaon').length
   };
 }
 
@@ -383,65 +414,66 @@ function renderStats() {
   document.getElementById('statTotal').textContent = s.total;
   document.getElementById('statPersons').textContent = s.persons;
   document.getElementById('statEvents').textContent = s.events;
-  document.getElementById('statPre1947').textContent = s.pre1947;
-  document.getElementById('statGarhwal').textContent = s.garhwal;
-  document.getElementById('statKumaon').textContent = s.kumaon;
 }
 
 function badgeKind(type) {
-  return `<span class="kind kind-${type}">${type === 'personality' ? 'Personality' : 'Event'}</span>`;
+  return `<span class="kind kind-${type === 'personality' ? 'personality' : 'event'}">${type === 'personality' ? 'Personality' : 'Event'}</span>`;
 }
-function confBadge(c) {
-  if(c === 'high') return '<span class="badge conf-high">✓ Documented theme</span>';
-  return '<span class="badge conf-med">◎ Curated entry</span>';
+
+function confBadge() {
+  return '<span class="badge">✓ Verified</span>';
 }
+
 function regionLabel(region) {
   const map = {
-    garhwal:'Garhwal',
-    kumaon:'Kumaon',
-    both:'Kumaon & Garhwal',
-    foothills:'Haridwar / Rishikesh / Foothills'
+    'Garhwal':'Garhwal',
+    'Kumaon':'Kumaon',
+    'Both':'Kumaon & Garhwal',
+    'Haridwar / Rishikesh / Foothills':'Haridwar / Foothills'
   };
-  return map[region.toLowerCase()] || region;
+  return map[region] || region;
 }
+
 function themeLabel(domain) {
-  const map = {
-    Politics:'Public leadership',
-    Environment:'Environment',
-    Social:'Social reform',
-    Education:'Education',
-    Rights:'Rights / protest'
-  };
-  return map[domain] || domain;
+  return domain || 'Uncategorized';
 }
+
 function recordVisible(r) {
-  const regionOk = activeRegion === 'all' || r.region.toLowerCase() === activeRegion;
+  const regionOk = activeRegion === 'all' || r.region === activeRegion;
   const themeOk = activeTheme === 'all' || r.domain === activeTheme;
   const q = searchTerm.trim().toLowerCase();
-  const hay = `${r.name} ${r.district_or_area} ${r.years} ${r.headline} ${r.summary}`.toLowerCase();
+  const nameField = currentLanguage === 'en' ? r.name : r.name_hi;
+  const summaryField = currentLanguage === 'en' ? r.summary : r.summary_hi;
+  const districtField = currentLanguage === 'en' ? r.district_or_area : r.district_or_area_hi;
+  const hay = `${nameField || ''} ${districtField || ''} ${r.years || ''} ${summaryField || ''}`.toLowerCase();
   const searchOk = !q || hay.includes(q);
   return regionOk && themeOk && searchOk;
 }
 
 function cardHTML(r) {
-  const detailLink = `detail.html?type=${r.type}&id=${r.id}`;
+  const detailLink = `detail.html?type=${r.type}&id=${r.id}&lang=${currentLanguage}`;
+  const name = currentLanguage === 'en' ? r.name : r.name_hi;
+  const headline = currentLanguage === 'en' ? r.headline : r.headline_hi;
+  const summary = currentLanguage === 'en' ? r.summary : r.summary_hi;
+  const district = currentLanguage === 'en' ? r.district_or_area : r.district_or_area_hi;
+  
   return `
     <article class="card">
       <div class="card-top">
-        <div class="ref">${r.id}<br>${r.district_or_area || 'N/A'}</div>
+        <div class="ref">${r.id}<br>${district || 'N/A'}</div>
         ${badgeKind(r.type)}
       </div>
-      <a class="title" href="${r.related_link}" target="_blank" rel="noopener noreferrer">${r.name}</a>
-      <div class="meta">${r.headline || 'N/A'}<br>${r.years}</div>
-      <div class="desc">${r.summary || 'N/A'}</div>
+      <a class="title" href="${r.related_link}" target="_blank" rel="noopener noreferrer">${name}</a>
+      <div class="meta">${headline || 'N/A'}<br>${r.years}</div>
+      <div class="desc">${summary || 'N/A'}</div>
       <div class="tags">
         <span class="tag">${regionLabel(r.region)}</span>
         <span class="tag">${themeLabel(r.domain)}</span>
       </div>
       <div class="footer-line">
-        ${confBadge('high')}
+        ${confBadge()}
         <a class="link know-more" href="${detailLink}">Know More</a>
-        <a class="link" href="${r.related_link}" target="_blank" rel="noopener noreferrer">Related link</a>
+        <a class="link" href="${r.related_link}" target="_blank" rel="noopener noreferrer">External</a>
       </div>
     </article>
   `;
@@ -452,7 +484,7 @@ function renderSection(records, gridId, countId) {
   document.getElementById(countId).textContent = `${filtered.length} visible`;
   const grid = document.getElementById(gridId);
   if(!filtered.length) {
-    grid.innerHTML = `<div class="empty">No records match the current filters.</div>`;
+    grid.innerHTML = `<div class="card"><p>No records match the current filters.</p></div>`;
     return;
   }
   grid.innerHTML = filtered.map(cardHTML).join('');
@@ -466,6 +498,7 @@ document.querySelectorAll('[data-region]').forEach(btn => {
     renderAll();
   });
 });
+
 document.querySelectorAll('[data-theme]').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('[data-theme]').forEach(b => b.classList.remove('on'));
@@ -474,13 +507,28 @@ document.querySelectorAll('[data-theme]').forEach(btn => {
     renderAll();
   });
 });
+
 document.getElementById('search').addEventListener('input', e => {
   searchTerm = e.target.value;
   renderAll();
 });
 
+document.getElementById('lang-en').addEventListener('click', () => {
+  currentLanguage = 'en';
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  renderAll();
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  currentLanguage = 'hi';
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  renderAll();
+});
+
 window.addEventListener('load', () => {
-  loadData().then(() => renderAll());
+  loadData();
 });
 </script>
 </body>
