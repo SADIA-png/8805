@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Kalu Mahra</h1>
     <div class="subtitle">Early regional resistance memory</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>Kalu Singh Mahara was a pivotal figure in the Indian independence movement, particularly in the Kumaon region of present-day Uttarakhand. As a leader of the Vishung Patti of Kumaun, Karnakarayat, he played a significant role in the first Indian Rebellion of 1857 against the British colonial rule.
+    <div id="content-en">Kalu Singh Mahara was a pivotal figure in the Indian independence movement, particularly in the Kumaon region of present-day Uttarakhand. As a leader of the Vishung Patti of Kumaun, Karnakarayat, he played a significant role in the first Indian Rebellion of 1857 against the British colonial rule.
 
 Mahara's significance lies in his status as the first major freedom fighter from the state of Uttarakhand. He was instrumental in forming a secret organization, known as Krantiveer, to fight against the British. His bravery and leadership skills earned him recognition as a champion of the Indian independence movement.
 
@@ -123,9 +146,8 @@ The rebellion led by Mahara took place in the Kumaon region, which is now part o
 
 Mahara's contributions to the Indian independence movement cannot be overstated. His bravery, leadership, and commitment to the cause of freedom helped shape the narrative of the rebellion in the Kumaon region. Today, his memory is honored through various initiatives and events, ensuring that his legacy endures as an integral part of Uttarakhand's history.
 
-Mahara's role in the Indian Rebellion of 1857 also underscores the importance of regional leaders like Kalu Singh Mahara who played a crucial role in shaping the country's struggle for independence. Their stories serve as a testament to the power of grassroots movements and the significance of local leadership in shaping national histories.</p>
-    <h3>In Hindi</h3>
-    <p>कalu सिंह महरा एक भारतीय स्वतंत्रता आंदोलन के मुख्य व्यक्ति थे, खासकर वर्तमान उत्तराखंड की कुमाऊँण region में। विशुंग पट्टी के नेतृत्व में करनकारायत, महरा ने 1857 के पहले भारतीय विद्रोह में ब्रिटिश शासन के खिलाफ लड़ाई में महत्वपूर्ण भूमिका निभाई।
+Mahara's role in the Indian Rebellion of 1857 also underscores the importance of regional leaders like Kalu Singh Mahara who played a crucial role in shaping the country's struggle for independence. Their stories serve as a testament to the power of grassroots movements and the significance of local leadership in shaping national histories.</div>
+    <div id="content-hi" style="display:none">कalu सिंह महरा एक भारतीय स्वतंत्रता आंदोलन के मुख्य व्यक्ति थे, खासकर वर्तमान उत्तराखंड की कुमाऊँण region में। विशुंग पट्टी के नेतृत्व में करनकारायत, महरा ने 1857 के पहले भारतीय विद्रोह में ब्रिटिश शासन के खिलाफ लड़ाई में महत्वपूर्ण भूमिका निभाई।
 
 महेरा की प्रमुख स्थिति उनके उत्तराखंड राज्य के पहले महान स्वतंत्रता सेनानी के रूप में है। उन्होंने ब्रिटिश शासन के खिलाफ लड़ाई करने के लिए एक गुप्त संगठन, जिसे क्रांतिवीर कहा जाता था, बनाया। उनकी धैर्य और नेतृत्व क्षमताओं ने उन्हें भारतीय स्वतंत्रता आंदोलन के चैंपियन के रूप में मान्यता दिलाई।
 
@@ -133,7 +155,7 @@ Mahara's role in the Indian Rebellion of 1857 also underscores the importance of
 
 महेरा ने भारतीय स्वतंत्रता आंदोलन में उनके योगदान पर कोई सीमा नहीं है। उनकी धैर्य, नेतृत्व और स्वतंत्रता की पledge के प्रति समर्पण ने उन्हें कुमाऊँण region के विद्रोह के खाते में एक महत्वपूर्ण भूमिका निभाई। आज उनकी यादों को विभिन्न पहल और आयोजनों द्वारा सम्मानित किया जाता है, जिससे उनकी विरासत उत्तराखंड की इतिहास का एक अभिन्न अंग बनी है।
 
-महेरा ने 1857 के भारतीय विद्रोह में उनके योगदान से उर्फ रेगनल नेताओं जैसे कलु सिंह महरा का महत्वपूर्ण भूमिका को दर्शाता है और अपनी कहानियों पारंपरिक आंदोलनों और स्थानीय नेतृत्व की शक्ति को प्रमाणित करता है।</p>
+महेरा ने 1857 के भारतीय विद्रोह में उनके योगदान से उर्फ रेगनल नेताओं जैसे कलु सिंह महरा का महत्वपूर्ण भूमिका को दर्शाता है और अपनी कहानियों पारंपरिक आंदोलनों और स्थानीय नेतृत्व की शक्ति को प्रमाणित करता है।</div>
   </div>
 
   <div class="sources">
@@ -145,5 +167,21 @@ Mahara's role in the Indian Rebellion of 1857 also underscores the importance of
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Bhagat Singh Koshyari</h1>
     <div class="subtitle">Organization, state politics, administrative leadership</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>Bhagat Singh Koshyari is a prominent Indian politician who has made significant contributions to the country's politics. Born on June 17, 1942, in Palnadura, Bageswar (Uttarakhand), Koshyari comes from a strong background of service and education. He was named as one of the grounded and low-profile members of the Bharatiya Janata Party (BJP) due to his simplicity and humility.
+    <div id="content-en">Bhagat Singh Koshyari is a prominent Indian politician who has made significant contributions to the country's politics. Born on June 17, 1942, in Palnadura, Bageswar (Uttarakhand), Koshyari comes from a strong background of service and education. He was named as one of the grounded and low-profile members of the Bharatiya Janata Party (BJP) due to his simplicity and humility.
 
 Koshyari's journey into politics began at a young age, when he actively participated in various movements and campaigns. His commitment to the cause of service and education earned him recognition, and he eventually became a key figure in the party. He has served as the National Vice-President of the BJP and was also instrumental in leading the party in the state of Uttarakhand. Furthermore, Koshyari held the position of the third State President for Uttarakhand and played a crucial role in shaping the party's strategy in the region.
 
@@ -123,9 +146,8 @@ In addition to his political career, Koshyari is known for his philanthropic eff
 
 Koshyari's appointment as the Governor of Maharashtra in 2019 marked a significant milestone in his career. With his experience in politics and governance, he was entrusted with the responsibility of leading the state of Maharashtra. Prior to his appointment as Governor, Koshyari had won the Nainital-Udhamsingh Nagar constituency in the 2014 Lok Sabha elections and served as the State President of BJP for Uttarakhand.
 
-Throughout his career, Koshyari has been known for his simplicity and humility. Despite holding important positions, he remains grounded and focused on serving others. His leadership qualities, dedication to service, and commitment to education have earned him a special place in Indian politics.</p>
-    <h3>In Hindi</h3>
-    <p>भागत सिंह कोश्यारी एक प्रमुख भारतीय राजनीतिज्ञ हैं जिन्होंने देश की राजनीति में महत्वपूर्ण योगदान दिया है। 17 जून, 1942 को पल्नाडूरा, बेजवासर (उत्तराखंड) में जन्मे, कोश्यारी एक मजबूत सेवा और शिक्षा के परिवार से आते हैं। उन्हें उनकी सरलता और गरिमा के कारण भारतीय जनता पार्टी (भाजपा) के जमीनी और नीचे ताल्लुक वाले सदस्यों में शामिल किया गया था।
+Throughout his career, Koshyari has been known for his simplicity and humility. Despite holding important positions, he remains grounded and focused on serving others. His leadership qualities, dedication to service, and commitment to education have earned him a special place in Indian politics.</div>
+    <div id="content-hi" style="display:none">भागत सिंह कोश्यारी एक प्रमुख भारतीय राजनीतिज्ञ हैं जिन्होंने देश की राजनीति में महत्वपूर्ण योगदान दिया है। 17 जून, 1942 को पल्नाडूरा, बेजवासर (उत्तराखंड) में जन्मे, कोश्यारी एक मजबूत सेवा और शिक्षा के परिवार से आते हैं। उन्हें उनकी सरलता और गरिमा के कारण भारतीय जनता पार्टी (भाजपा) के जमीनी और नीचे ताल्लुक वाले सदस्यों में शामिल किया गया था।
 
 कोश्यारी की राजनीति में यात्रा एक से अधिक उम्र में हुई, जब उन्होंने विभिन्न आंदोलनों और अभियानों में सक्रिय भाग लिया। उनकी सेवा और शिक्षा के कारण न्याय दिया, और अंततः वह पार्टी का एक महत्वपूर्ण चेहरा बने। उन्होंने भाजपा के राष्ट्रीय उपाध्यक्ष के रूप में कार्य किया और उत्तराखंड राज्य में पार्टी को नेतृत्व करने में महत्वपूर्ण भूमिका निभाई। इसके अलावा, उन्होंने उत्तराखंड के तीसरे राज्य अध्यक्ष के रूप में पद संभाला और क्षेत्र में पार्टी की रणनीति को आकार देने में महत्वपूर्ण भूमिका निभाई।
 
@@ -133,7 +155,7 @@ Throughout his career, Koshyari has been known for his simplicity and humility. 
 
 2019 में उनकी महाराष्ट्र के गवर्नर के रूप में नियुक्ति एक महत्वपूर्ण मील का पत्थर था। उनकी राजनीतिक और संचालन अनुभव के साथ, उन्हें राज्य की देखभाल करने के लिए जिम्मेदार ठहराया गया। उसके नियुक्ति से पहले, कोश्यारी ने 2014 की लोकसभा चुनावों में नैनीताल-उधमसिंग नगर निर्वाचन क्षेत्र जीतते हुए नेतृत्व किया था और उत्तराखंड राज्य अध्यक्ष के रूप में कार्य किया।
 
-कोश्यारी की पूरी करियर में, उन्होंने सरलता और गरिमा को बनाए रखने के लिए जाना जाता है। अपने महत्वपूर्ण पद पर भी, वे अन्य लोगों को सेवा करने की दिशा में ध्यान केंद्रित रखते हुए नेतृत्व गुण, शिक्षा और सेवा की प्रतिबद्धता के लिए विशेष स्थान पर रहे।</p>
+कोश्यारी की पूरी करियर में, उन्होंने सरलता और गरिमा को बनाए रखने के लिए जाना जाता है। अपने महत्वपूर्ण पद पर भी, वे अन्य लोगों को सेवा करने की दिशा में ध्यान केंद्रित रखते हुए नेतृत्व गुण, शिक्षा और सेवा की प्रतिबद्धता के लिए विशेष स्थान पर रहे।</div>
   </div>
 
   <div class="sources">
@@ -145,5 +167,21 @@ Throughout his career, Koshyari has been known for his simplicity and humility. 
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

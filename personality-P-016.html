@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Nain Singh Rawat</h1>
     <div class="subtitle">Survey, exploration, Himalayan knowledge production</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>Nain Singh Rawat was a trailblazing explorer born in 1830 in Milam village, a Bhotia community at the foot of the Milam glacier on the India-China border in present-day Uttarakhand state, India. He belonged to a renowned trading group with deep cultural and linguistic ties to Tibet. Despite being from a humble background as a coolie with the Schlagintweit brothers, Rawat's thirst for adventure and knowledge led him to embark on some of the most remarkable expeditions of his time.
+    <div id="content-en">Nain Singh Rawat was a trailblazing explorer born in 1830 in Milam village, a Bhotia community at the foot of the Milam glacier on the India-China border in present-day Uttarakhand state, India. He belonged to a renowned trading group with deep cultural and linguistic ties to Tibet. Despite being from a humble background as a coolie with the Schlagintweit brothers, Rawat's thirst for adventure and knowledge led him to embark on some of the most remarkable expeditions of his time.
 
 Rawat's most notable journeys took him to uncharted territories in Tibet, Central Asia, and the Tartary region. Operating under extreme risk and anonymity, he carried out groundbreaking work that significantly expanded our understanding of these regions. His observations and journals not only provided invaluable insights into the geography and cultures of these areas but also left an indelible mark on the world map.
 
@@ -123,9 +146,8 @@ Rawat's achievements were largely overlooked until recent years, when his contri
 
 One of the most fascinating aspects of Rawat's story is the secrecy surrounding his expeditions. As a member of the Indian colonial administration, Rawat was part of a select group of officials who were tasked with mapping the Himalayas and expanding British influence in the region. Despite facing significant risks and challenges, Rawat persevered, driven by a passion for discovery and a commitment to advancing scientific knowledge.
 
-Today, Nain Singh Rawat is celebrated as one of India's greatest explorers and cartographers. His contributions to our understanding of Tibet, Central Asia, and the Himalayas continue to shape global geography and inspire new generations of adventurers and scientists. As we reflect on his remarkable life and achievements, it is clear that Rawat's legacy serves as a testament to the power of determination, courage, and scientific inquiry in shaping our world today.</p>
-    <h3>In Hindi</h3>
-    <p>नैन सिंह रावत एक साहसिक अन्वेषक थे जिनका जन्म 1830 में मिलाम गांव में हुआ था, जहां भोटिया समुदाय की एक प्रसिद्ध व्यवसायिक परिवार रहता था। यह गांव भारत-चीन सीमा पर मिलाम बर्फीले धाराओं के पास स्थित था। उनकी परंपरागत व्यापारिक समूह के साथ गहरी सांस्कृतिक और भाषाई कनेक्शन थी। हालांकि वह एक गरीब जीवन में थे, रावत का जिज्ञासा और ज्ञान का शौक उन्हें अपने समय के सबसे उल्लेखनीय यात्राओं पर ले गया।
+Today, Nain Singh Rawat is celebrated as one of India's greatest explorers and cartographers. His contributions to our understanding of Tibet, Central Asia, and the Himalayas continue to shape global geography and inspire new generations of adventurers and scientists. As we reflect on his remarkable life and achievements, it is clear that Rawat's legacy serves as a testament to the power of determination, courage, and scientific inquiry in shaping our world today.</div>
+    <div id="content-hi" style="display:none">नैन सिंह रावत एक साहसिक अन्वेषक थे जिनका जन्म 1830 में मिलाम गांव में हुआ था, जहां भोटिया समुदाय की एक प्रसिद्ध व्यवसायिक परिवार रहता था। यह गांव भारत-चीन सीमा पर मिलाम बर्फीले धाराओं के पास स्थित था। उनकी परंपरागत व्यापारिक समूह के साथ गहरी सांस्कृतिक और भाषाई कनेक्शन थी। हालांकि वह एक गरीब जीवन में थे, रावत का जिज्ञासा और ज्ञान का शौक उन्हें अपने समय के सबसे उल्लेखनीय यात्राओं पर ले गया।
 
 रावत की प्रमुख यात्राएं तिब्बत, मध्य एशिया और तार्टेरी क्षेत्रों में अनूठे क्षेत्रों तक पहुंचाई। वे बहुत जोखिम और निजित्व की परिस्थितियों में काम करते हुए, प्रमुख खोजों का अहसास कराया। उनके अनुसंधान और दैनिक पत्र न केवल इन क्षेत्रों की भूगोल और संस्कृति के बारे में अवशेषकीय जानकारी प्रदान की, बल्कि विश्व नक्शे पर एक अंशित छाप छोड़ी।
 
@@ -133,7 +155,7 @@ Today, Nain Singh Rawat is celebrated as one of India's greatest explorers and c
 
 रावत की कहानी का एक सबसे रोचक पहलू, उनकी यात्राओं की गोपनीयता। वह भारतीय ब्रिटिश शासन की एक नियुक्त अधिकारी के रूप में एक विशिष्ट समूह में थे, जिन्होंने हिमालय का नक्शा बनाने और इस प्रदेश में ब्रिटिश प्रभाव बढ़ाने का काम किया। विरोधी स्थितियों और चुनौतियों का सामना करते हुए भी, रावत ने एक खोज के लिए प्रतिबद्ध रहे, उनकी जिज्ञासा और वैज्ञानिक ज्ञान को आगे बढ़ाने के लिए।
 
-आज, नैन सिंह रावत भारत के सबसे महान अन्वेषकों में से एक माने जाते हैं। उनकी तिब्बत, मध्य एशिया और हिमालय की समझ में हमारी वैश्विक भूगोल की समझ में महत्वपूर्ण योगदान देते हुए अपनी यात्राएं आज भी नए पीढ़ी के अन्वेषकों और वैज्ञानिकों को प्रेरित करती हैं। रावत की जीवनशैली पर एक विचार करना स्पष्ट है कि उनकी विरासत निरंतरता, वीरता, और वैज्ञानिक अनुसंधान की शक्ति के माध्यम से हमारे दुनिया को आकार देती है।</p>
+आज, नैन सिंह रावत भारत के सबसे महान अन्वेषकों में से एक माने जाते हैं। उनकी तिब्बत, मध्य एशिया और हिमालय की समझ में हमारी वैश्विक भूगोल की समझ में महत्वपूर्ण योगदान देते हुए अपनी यात्राएं आज भी नए पीढ़ी के अन्वेषकों और वैज्ञानिकों को प्रेरित करती हैं। रावत की जीवनशैली पर एक विचार करना स्पष्ट है कि उनकी विरासत निरंतरता, वीरता, और वैज्ञानिक अनुसंधान की शक्ति के माध्यम से हमारे दुनिया को आकार देती है।</div>
   </div>
 
   <div class="sources">
@@ -145,5 +167,21 @@ Today, Nain Singh Rawat is celebrated as one of India's greatest explorers and c
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

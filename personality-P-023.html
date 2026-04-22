@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Hari Prasad Tamta</h1>
     <div class="subtitle">Shilpkar social mobilization</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>I couldn't find any information on a person named Hari Prasad Tamta. However, I can provide you with some general information about the 2012 Uttarakhand Legislative Assembly election and its notable candidates.
+    <div id="content-en">I couldn't find any information on a person named Hari Prasad Tamta. However, I can provide you with some general information about the 2012 Uttarakhand Legislative Assembly election and its notable candidates.
 
 The 2012 Uttarakhand Legislative Assembly election was the third Vidhan Sabha (Legislative Assembly) election of the state. The election saw a mix of alliances and party wins, with the National Democratic Alliance (NDA) and the United Progressive Alliance (UPA) being two of the main forces.
 
@@ -123,9 +146,8 @@ One notable candidate who supported Baba Saheb in the round table conference was
 
 However, it's worth noting that Hari Prasad Tamta's name has been mentioned in some sources as a candidate who supported Baba Saheb, a prominent leader from the Nainital district of Uttarakhand. But I couldn't find any more information about his background or achievements.
 
-It's possible that Hari Prasad Tamta is a local politician or a community leader who hasn't gained much national attention. If you have any more specific information about him, I may be able to help you further.</p>
-    <h3>In Hindi</h3>
-    <p>मैंने हीर प्रसाद तंता के बारे में कोई जानकारी नहीं खोजी है, लेकिन मैं 2012 के उत्तराखंड विधानसभा चुनाव और इसके उल्लेखनीय उम्मीदवारों के बारे में सामान्य जानकारी प्रदान कर सकता हूं।
+It's possible that Hari Prasad Tamta is a local politician or a community leader who hasn't gained much national attention. If you have any more specific information about him, I may be able to help you further.</div>
+    <div id="content-hi" style="display:none">मैंने हीर प्रसाद तंता के बारे में कोई जानकारी नहीं खोजी है, लेकिन मैं 2012 के उत्तराखंड विधानसभा चुनाव और इसके उल्लेखनीय उम्मीदवारों के बारे में सामान्य जानकारी प्रदान कर सकता हूं।
 
 2012 के उत्तराखंड विधानसभा चुनाव देश की तीसरी विधान सभा (विधायिका परिषद) चुनौती था। यह चुनाव राजनीतिक संगठनों और दलों के एक मिश्रण ने दिखाया, जिसमें राष्ट्रीय जनतांत्रिक गठबंधन (एनडीए) और महागठबंधन (यूपीए) दो प्रमुख शक्तियां थीं।
 
@@ -133,7 +155,7 @@ It's possible that Hari Prasad Tamta is a local politician or a community leader
 
 हालांकि, पता चलता है कि हीर प्रसाद तंता का नाम कुछ स्रोतों में बाबा साहेब, उत्तराखंड के नैनीताल जिले से एक उल्लेखनीय नेता की समर्थन करने वाले उम्मीदवार के रूप में दिखाया गया है, लेकिन उसके पृष्ठभूमि और उपलब्धियों के बारे में और भी जानकारी नहीं मिली।
 
-संभावना यह है कि हीर प्रसाद तंता एक स्थानीय राजनेता या समुदाय नेता हो सकता है, जिसने राष्ट्रीय स्तर पर कम ध्यान आकर्षित नहीं किया। यदि आपके पास इस विषय पर अधिक विशिष्ट जानकारी है, तो मैं आपकी मदद करने में सक्षम हो सकता हूं।</p>
+संभावना यह है कि हीर प्रसाद तंता एक स्थानीय राजनेता या समुदाय नेता हो सकता है, जिसने राष्ट्रीय स्तर पर कम ध्यान आकर्षित नहीं किया। यदि आपके पास इस विषय पर अधिक विशिष्ट जानकारी है, तो मैं आपकी मदद करने में सक्षम हो सकता हूं।</div>
   </div>
 
   <div class="sources">
@@ -145,5 +167,21 @@ It's possible that Hari Prasad Tamta is a local politician or a community leader
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>E. T. Atkinson</h1>
     <div class="subtitle">Gazetteer and regional documentation</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,21 +138,20 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>E. T. Atkinson is not mentioned in the provided sources. However, Edwin Thomas Atkinson's book "Askot" is mentioned, but there is no information available about E.T. Atkinson. Nevertheless, I can provide you with a few paragraphs about Edwin Thomas Atkinson.
+    <div id="content-en">E. T. Atkinson is not mentioned in the provided sources. However, Edwin Thomas Atkinson's book "Askot" is mentioned, but there is no information available about E.T. Atkinson. Nevertheless, I can provide you with a few paragraphs about Edwin Thomas Atkinson.
 
 Edwin Thomas Atkinson was a British historian and author who wrote extensively on Indian history, particularly the Katyuri dynasty of Kumaon. His book "Askot" provides valuable insights into the history of the Katyuri dynasty, which played a significant role in shaping the politics and culture of Uttarakhand, a state located in the Himalayas of northern India.
 
 Atkinson's work on the Katyuri dynasty is notable for its depth and breadth. He delves into the origins of the dynasty, its expansion and contraction over time, and its interactions with neighboring kingdoms and empires. The book also explores the impact of British colonial rule on Uttarakhand and the ways in which the region was shaped by this period.
 
-Atkinson's research on the Katyuri dynasty is considered significant because it provides a nuanced understanding of the complex history of the region. His work has been useful for scholars and historians studying Indian history, particularly those interested in the medieval period and the politics of Uttarakhand.</p>
-    <h3>In Hindi</h3>
-    <p>ईटी एट्किनसन के बारे में दिए गए स्रोतों में उनका उल्लेख नहीं है। हालांकि, एडविन थॉमस एट्किनसन की पुस्तक "अस्कोट" का उल्लेख है, लेकिन ईटी एट्किनसन के बारे में कोई जानकारी उपलब्ध नहीं है। इसके बावजूद, मैं आपको एडविन थॉमस एट्किनसन के बारे में कुछ वाक्यांश प्रदान कर सकता हूं।
+Atkinson's research on the Katyuri dynasty is considered significant because it provides a nuanced understanding of the complex history of the region. His work has been useful for scholars and historians studying Indian history, particularly those interested in the medieval period and the politics of Uttarakhand.</div>
+    <div id="content-hi" style="display:none">ईटी एट्किनसन के बारे में दिए गए स्रोतों में उनका उल्लेख नहीं है। हालांकि, एडविन थॉमस एट्किनसन की पुस्तक "अस्कोट" का उल्लेख है, लेकिन ईटी एट्किनसन के बारे में कोई जानकारी उपलब्ध नहीं है। इसके बावजूद, मैं आपको एडविन थॉमस एट्किनसन के बारे में कुछ वाक्यांश प्रदान कर सकता हूं।
 
 एडविन थॉमस एट्किनसन एक ब्रिटिश इतिहासकार और लेखक थे जिन्होंने भारतीय इतिहास पर बहुत विस्तार से लिखा। विशेष रूप से, उन्होंने कुमाऊं की कटरिया राजवंश के बारे में लिखा, जो उत्तराखंड की एक महत्वपूर्ण प्रतिष्ठान थी। उनकी पुस्तक "अस्कोट" कुमाऊं की राजवंश के इतिहास में अवश्य कीमती विस्तार है, जिसने उत्तराखंड की राजनीति और संस्कृति को आकार देने में महत्वपूर्ण भूमिका निभाई।
 
 एट्किनसन की कटरिया राजवंश पर उनकी शोध विशेषता है। उन्होंने इसकी उत्पत्ति, इसके समय-समय पर विस्तार और उसके पड़ोसी राज्यों और साम्राज्यों के साथ उसके व्यवहार को देखा। पुस्तक में ब्रिटिश साम्राज्यवाद के काल में उत्तराखंड का प्रभाव और यह कैसे इस क्षेत्र की रूपरेखा को आकार दिया, इस पर विस्तार किया गया है।
 
-एट्किनसन के कटरिया राजवंश पर उनकी शोध महत्वपूर्ण मानी जाती है क्योंकि यह क्षेत्र के इतिहास को एक विशिष्ट दृष्टिकोण प्रदान करती है। उनके कार्य भारतीय इतिहास के अध्ययन में उपयोगी रहे हैं, खासकर उन लोगों के लिए जो मध्ययुगीन काल और उत्तराखंड की राजनीति के अध्ययन में रुचि रखते हैं।</p>
+एट्किनसन के कटरिया राजवंश पर उनकी शोध महत्वपूर्ण मानी जाती है क्योंकि यह क्षेत्र के इतिहास को एक विशिष्ट दृष्टिकोण प्रदान करती है। उनके कार्य भारतीय इतिहास के अध्ययन में उपयोगी रहे हैं, खासकर उन लोगों के लिए जो मध्ययुगीन काल और उत्तराखंड की राजनीति के अध्ययन में रुचि रखते हैं।</div>
   </div>
 
   <div class="sources">
@@ -141,5 +163,21 @@ Atkinson's research on the Katyuri dynasty is considered significant because it 
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

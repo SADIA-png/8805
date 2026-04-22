@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Pratap Shah</h1>
     <div class="subtitle">Early institutional modernization in Tehri</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>Here are 3-5 informative paragraphs about Pratap Shah based on the provided information:
+    <div id="content-en">Here are 3-5 informative paragraphs about Pratap Shah based on the provided information:
 
 Pratap Shah was a notable ruler of the Tehri dynasty in the region that is now part of Uttarakhand, India. After King Sudarshan Shah established his capital at Tehri town, his successors, including Pratap Shah, Kirti Shah, and Narendra Shah, shifted their capitals to Pratap Nagar, Kirtinagar, and Narendra Nagar, respectively. The dynasty ruled over the region from 1815 to 1949, leaving a lasting impact on the local culture and infrastructure.
 
@@ -125,9 +148,8 @@ The legacy of Pratap Shah can be seen in the town of Pratap Nagar, which he foun
 
 As the ruler of Tehri Garhwal, Pratap Shah played a significant role in shaping the region's administrative setup. He established a system of governance that included the creation of villages, assembly constituencies, and an administrative hierarchy that ensured efficient management of the kingdom.
 
-Pratap Shah's contributions to the region have been recognized by the modern-day government, which has given him a new responsibility as a member of the Uttarakhand Subordinate Services Selection Commission. This appointment reflects the state's commitment to honoring its rich history and acknowledging the achievements of past rulers like Pratap Shah, who left an indelible mark on the region's development and cultural landscape.</p>
-    <h3>In Hindi</h3>
-    <p>प्रताप शाह पूर्व के तिहरी राजवंश के एक उल्लेखनीय शासक थे जो वर्तमान उत्तराखंड में स्थित है। उनके पूर्ववर्ती राजा सुदर्शन शाह ने अपनी राजधानी तेहरी शहर में स्थापित की, इसके बाद उसके उत्तराधिकारियों में प्रताप शाह, कीर्ति शाह और नरेन्द्र शाह ने अपनी राजधानी प्रताप नगर, कीर्तिनगर और नरेन्द्र नगर में बदल दी। तिहरी राजवंश ने 1815 से 1949 तक इस क्षेत्र पर शासन किया, जिससे स्थानीय संस्कृति और संरचना पर वायु पूरी तरह से छा गई।
+Pratap Shah's contributions to the region have been recognized by the modern-day government, which has given him a new responsibility as a member of the Uttarakhand Subordinate Services Selection Commission. This appointment reflects the state's commitment to honoring its rich history and acknowledging the achievements of past rulers like Pratap Shah, who left an indelible mark on the region's development and cultural landscape.</div>
+    <div id="content-hi" style="display:none">प्रताप शाह पूर्व के तिहरी राजवंश के एक उल्लेखनीय शासक थे जो वर्तमान उत्तराखंड में स्थित है। उनके पूर्ववर्ती राजा सुदर्शन शाह ने अपनी राजधानी तेहरी शहर में स्थापित की, इसके बाद उसके उत्तराधिकारियों में प्रताप शाह, कीर्ति शाह और नरेन्द्र शाह ने अपनी राजधानी प्रताप नगर, कीर्तिनगर और नरेन्द्र नगर में बदल दी। तिहरी राजवंश ने 1815 से 1949 तक इस क्षेत्र पर शासन किया, जिससे स्थानीय संस्कृति और संरचना पर वायु पूरी तरह से छा गई।
 
 प्रताप शाह ने कई संरचनाएँ बनाई हैं जो आज भी खड़ी हैं, जिसमें राजगृह, दरबार भवन, खजाना घर और सरकारी कर्मचारियों के लिए आवास समेत विभिन्न भवन शामिल हैं। उनकी निर्माण परियोजनाएँ न केवल उसकी संपत्ति को प्रदर्शित करती थीं बल्कि स्थानीय अर्थव्यवस्था को मजबूत कर देती और उसके विषयक किसी भी व्यक्ति के जीवन की गुणवत्ता में सुधार करती थीं। इसके अतिरिक्त प्रताप शाह ने भिलंगना पर स्थित जुलाल ब्रिज को संशोधित किया, जिससे प्रताप नगर तक पहुँच सुविधाजनक हुई।
 
@@ -135,7 +157,7 @@ Pratap Shah's contributions to the region have been recognized by the modern-day
 
 प्रताप शाह ने तेहरी गरहोल पर शासन करते समय एक महत्वपूर्ण भूमिका निभाई। उसने एक प्रशासनिक ढांचे को स्थापित किया जिसमें गाँवों की स्थापना, विधानसभा निर्वाचनीय क्षेत्रों और एक प्रशासकीय प्रणाली शामिल थी, जिससे राज्य की सरकार की प्रभावी प्रबंधन हो सके।
 
-प्रताप शाह के इस क्षेत्र पर उनके योगदान ने उन्हें आधुनिक दिनों में एक नया पद सौंपने के साथ साथ, वह विरासत को सम्मानित करते हुए राज्य सरकार द्वारा प्रताप शाह की सम्मानित किया गया। यह निमंत्रण उस ऐतिहासिक समय की विरासत को बनाए रखने और उन रulers जैसे प्रताप शाह की उपलब्धियों को सम्मानित करने का एक संकेत है।</p>
+प्रताप शाह के इस क्षेत्र पर उनके योगदान ने उन्हें आधुनिक दिनों में एक नया पद सौंपने के साथ साथ, वह विरासत को सम्मानित करते हुए राज्य सरकार द्वारा प्रताप शाह की सम्मानित किया गया। यह निमंत्रण उस ऐतिहासिक समय की विरासत को बनाए रखने और उन रulers जैसे प्रताप शाह की उपलब्धियों को सम्मानित करने का एक संकेत है।</div>
   </div>
 
   <div class="sources">
@@ -147,5 +169,21 @@ Pratap Shah's contributions to the region have been recognized by the modern-day
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

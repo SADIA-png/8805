@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Khateema-Masuri-Rampur Tiraha Phase</h1>
     <div class="subtitle">Turning point in statehood mobilization</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>The formation of Uttarakhand is a complex and multifaceted topic, with various events contributing to the state's creation over time. One of the most significant milestones in this process was the Rampur ka Tiraha violence, which took place in 1994.
+    <div id="content-en">The formation of Uttarakhand is a complex and multifaceted topic, with various events contributing to the state's creation over time. One of the most significant milestones in this process was the Rampur ka Tiraha violence, which took place in 1994.
 
 In the early 1990s, Uttar Pradesh politics was marked by turmoil, following the demolition of the Babri Masjid in 1992 and the subsequent coalition government between the Samajwadi Party-Bahujan Samaj Party. However, this alliance proved unstable, and tensions continued to rise among various political groups. On February 1, 1994, a silent march organized by Uttarakhand activists turned violent when police fired at protesters in Khatima, near Rampur. This incident, known as the Rampur Tiraha firing, marked a watershed moment in the statehood struggle of Uttarakhand.
 
@@ -123,9 +146,8 @@ The Rampur Tiraha violence was a turning point in the movement for Uttarakhand's
 
 In the aftermath of the Rampur Tiraha firing, the movement for Uttarakhand's formation gained momentum. In 2000, the Uttarakhand Movement was officially launched, with A.K. Singh as its leader. The movement continued to gain support and eventually led to the passage of the Uttarakhand Reorganization Act in 2000, which created the new state of Uttarakhand.
 
-Today, the Rampur ka Tiraha violence is remembered as a pivotal moment in the struggle for Uttarakhand's formation. The government has announced plans to redevelop the martyrs' site in Muzaffarnagar, with a comprehensive master plan to be prepared soon. The anniversary of this event serves as a reminder of the sacrifices made by those who fought for the state's freedom and the importance of preserving its history.</p>
-    <h3>In Hindi</h3>
-    <p>उत्तराखंड की स्थापना एक जटिल और विविध विषय है, जिसमें समय के साथ कई घटनाएं राज्य की स्थापना में योगदान देती हैं। इस प्रक्रिया में सबसे महत्वपूर्ण मील के पत्थरों में से एक था 1994 में हुए रामपुर का तीरहा हिंसा घटना।
+Today, the Rampur ka Tiraha violence is remembered as a pivotal moment in the struggle for Uttarakhand's formation. The government has announced plans to redevelop the martyrs' site in Muzaffarnagar, with a comprehensive master plan to be prepared soon. The anniversary of this event serves as a reminder of the sacrifices made by those who fought for the state's freedom and the importance of preserving its history.</div>
+    <div id="content-hi" style="display:none">उत्तराखंड की स्थापना एक जटिल और विविध विषय है, जिसमें समय के साथ कई घटनाएं राज्य की स्थापना में योगदान देती हैं। इस प्रक्रिया में सबसे महत्वपूर्ण मील के पत्थरों में से एक था 1994 में हुए रामपुर का तीरहा हिंसा घटना।
 
 1990 के दशक के शुरुआती वर्षों में, उत्तर प्रदेश की राजनीति में विद्रोह था, जिसने 1992 में बाबरी मस्जिद की देवास्ता के बाद शुरू हुआ और यह संयुक्त सरकार का नेतृत्व किया। हालांकि, इस संघर्ष ने अस्थिरता पैदा की, और विभिन्न राजनीतिक समूहों में तनाव बना रहता था। फरवरी 1, 1994 को, उट्टरखंड सक्रियता द्वारा आयोजित एक शांतिपूर्ण परेड ने जब पुलिस ने हिंसक घटनाओं में सामना करने वालों पर गोलीबारी की, तो यह घटना रामपुर तीरहा फायरिंग के रूप में जानी जाती है। यह घटना, उट्टरखंड की राज्यीयता की लड़ाई में एक महत्वपूर्ण पल था।
 
@@ -133,7 +155,7 @@ Today, the Rampur ka Tiraha violence is remembered as a pivotal moment in the st
 
 रामपुर तीरहा हिंसा के बाद, इस्त्री की स्थापना के लिए अभियान को गति मिली। 2000 में, उट्टरखंड आंदोलन को आधिकारिक रूप से शुरू किया गया, जिसका नेतृत्व ए के सिंह ने किया। इस आंदोलन ने समर्थन प्राप्त किया और अंततः 2000 में उत्तराखंड रेओर्गनाइजेशन एक्ट के साथ, नए राज्य उट्टरखंड की स्थापना हुई।
 
-आज, रामपुर तीरहा हिंसा को एक महत्वपूर्ण पल के रूप में याद किया जाता है इस्त्री की स्थापना के लिए लड़ाई। सरकार ने मुजफ्फरनगर में शहीदों के स्थल को विकसित करने के लिए योजनाएं घोषित की हैं, जिसमें एक समग्र मास्टर प्लान तैयार करने का इरादा है। यह घटना का वर्ष एक शहीदों की याद में है, और इसकी सुरक्षा को महत्व देता है।</p>
+आज, रामपुर तीरहा हिंसा को एक महत्वपूर्ण पल के रूप में याद किया जाता है इस्त्री की स्थापना के लिए लड़ाई। सरकार ने मुजफ्फरनगर में शहीदों के स्थल को विकसित करने के लिए योजनाएं घोषित की हैं, जिसमें एक समग्र मास्टर प्लान तैयार करने का इरादा है। यह घटना का वर्ष एक शहीदों की याद में है, और इसकी सुरक्षा को महत्व देता है।</div>
   </div>
 
   <div class="sources">
@@ -145,5 +167,21 @@ Today, the Rampur ka Tiraha violence is remembered as a pivotal moment in the st
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

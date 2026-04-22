@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Tiladi / Rawain Forest Rights Agitation</h1>
     <div class="subtitle">Forest rights and anti-repression struggle</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>The Tiladi Forest Rights Agitation was a pivotal event in the Indian independence movement that took place in 1930, marking a turning point in the struggle for forest rights and social justice in Uttarakhand. The agitation began as a response to local protests against the repressive policies imposed by the British-backed Tehri Garhwal princely state, which had been granted control over the region under the Treaty of Sugauli in 1815.
+    <div id="content-en">The Tiladi Forest Rights Agitation was a pivotal event in the Indian independence movement that took place in 1930, marking a turning point in the struggle for forest rights and social justice in Uttarakhand. The agitation began as a response to local protests against the repressive policies imposed by the British-backed Tehri Garhwal princely state, which had been granted control over the region under the Treaty of Sugauli in 1815.
 
 On May 30, 1930, in a field near Tiladi village in the Rawain Valley, near present-day Barkot in Uttarkashi district, India, unarmed protesters were brutally massacred by the princely state forces. The incident became known as the Tiladi massacre or the Rawain massacre, with estimates suggesting that up to 18 people were killed in the event. This tragic event was part of a broader movement for forest rights and social justice that had been building momentum across India during this period.
 
@@ -123,15 +146,14 @@ The aftermath of the Tiladi massacre saw widespread outrage and condemnation fro
 
 The legacy of the Tiladi Forest Rights Agitation continues to resonate in Uttarakhand, where efforts are being made to preserve the natural heritage and cultural traditions of the region. The Chipko movement, which began in the 1970s, drew inspiration from the struggles of earlier generations, including those who fought for forest rights at Tiladi. As Uttarakhand continues to evolve as a state, it is essential to learn from its history and ensure that the lessons of the Tiladi massacre remain alive, guiding efforts towards greater justice, equality, and environmental sustainability.
 
-The significance of remembering and learning from the Tiladi Forest Rights Agitation lies in its ability to inspire positive change and promote social cohesion. By acknowledging the struggles and sacrifices made by earlier generations, we can build a more inclusive and equitable society that values the rights of all individuals and communities, particularly those living at the margins.</p>
-    <h3>In Hindi</h3>
-    <p>तिलाडी में जंगल अधिकार आंदोलन एक महत्वपूर्ण घटना थी जो भारतीय स्वतंत्रता संग्राम के इतिहास में एक मील का पत्थर बन गई, जिसमें 1930 में इसका आयोजन हुआ, जिसने जंगल अधिकार और सामाजिक न्याय की लड़ाई में एक पivot point बनाया। इस आंदोलन की शुरुआत तिलाडी गाँव के आसपास के खेत में 1930 के मई महीने में हुई थी, जब उन्मुख विरोधियों ने ब्रिटिश समर्थित तेहरी गढ़वाल रियासत द्वारा लगाए गए दबावपूर्ण नीतियों का सामना किया था, जिसे 1815 में सुगौली की समझौता के तहत इस क्षेत्र पर नियंत्रण दिया गया था।
+The significance of remembering and learning from the Tiladi Forest Rights Agitation lies in its ability to inspire positive change and promote social cohesion. By acknowledging the struggles and sacrifices made by earlier generations, we can build a more inclusive and equitable society that values the rights of all individuals and communities, particularly those living at the margins.</div>
+    <div id="content-hi" style="display:none">तिलाडी में जंगल अधिकार आंदोलन एक महत्वपूर्ण घटना थी जो भारतीय स्वतंत्रता संग्राम के इतिहास में एक मील का पत्थर बन गई, जिसमें 1930 में इसका आयोजन हुआ, जिसने जंगल अधिकार और सामाजिक न्याय की लड़ाई में एक पivot point बनाया। इस आंदोलन की शुरुआत तिलाडी गाँव के आसपास के खेत में 1930 के मई महीने में हुई थी, जब उन्मुख विरोधियों ने ब्रिटिश समर्थित तेहरी गढ़वाल रियासत द्वारा लगाए गए दबावपूर्ण नीतियों का सामना किया था, जिसे 1815 में सुगौली की समझौता के तहत इस क्षेत्र पर नियंत्रण दिया गया था।
 
 30 मई 1930 को, बारकोट (वर्तमान उत्तराखंड) जिले में रावेन घाटी में तिलाडी गाँव के पास एक खेत में, अनपेक्षित विरोधियों को शहीद करने वाले सैनिकों द्वारा ब्रिटिश समर्थित तेहरी गढ़वाल रियासत के बलों ने शांतिपूर्ण प्रदर्शनकारियों को बहुत हिंसक रूप से मार डाला। इस दुर्भाग्यपूर्ण घटना को तिलाड़ी हत्याकांड या रावेन हत्याकांड के नाम से जाना जाता है, और इसकी अनुमानित मृत्यु संख्या 18 लोगों तक पहुंच सकती है। इस दुखद घटना भारत में इस समय वृक्ष अधिकारों और सामाजिक न्याय के लिए एक बड़े आंदोलन को बढ़ावा देने का एक अंग थी।
 
 तिलाड़ी हत्याकांड की घटना की प्रतिक्रिया से विभिन्न स्तरों पर व्यापक अप्रियता और निंदा हुई, जिसमें भारतीय राष्ट्रवादियों और उन ग्रामीण समुदायों से जुड़े लोग शामिल थे, जो प्रतिवादित राज्य की नीतियों द्वारा प्रभावित हुए थे। यह घटना प्रशासनिक दृष्टि से अधिक जवाबदेह और पर्यवेक्षण की आवश्यकता को उजागर करती है, विशेष रूप से म marginaliszed समुदायों पर प्रभावित क्षेत्रों के मामले में।
 
-तिलाड़ी जंगल अधिकार आंदोलन की विरासत उसकी सकारात्मक बदलाव को प्रेरित करने और एक सामाजिक संगठित समाज बनाने में महत्वपूर्ण है। इस घटना से हम निष्कर्ष निकालने पर सक्षम हैं जो विरोधियों द्वारा किए गए बलिदान की याद में अधिक न्याय, समानता, और पर्यावरणीय स्थायित्व की ओर चल रही लोकतांत्रिक प्रक्रिया का सम्मान करते हैं।</p>
+तिलाड़ी जंगल अधिकार आंदोलन की विरासत उसकी सकारात्मक बदलाव को प्रेरित करने और एक सामाजिक संगठित समाज बनाने में महत्वपूर्ण है। इस घटना से हम निष्कर्ष निकालने पर सक्षम हैं जो विरोधियों द्वारा किए गए बलिदान की याद में अधिक न्याय, समानता, और पर्यावरणीय स्थायित्व की ओर चल रही लोकतांत्रिक प्रक्रिया का सम्मान करते हैं।</div>
   </div>
 
   <div class="sources">
@@ -143,5 +165,21 @@ The significance of remembering and learning from the Tiladi Forest Rights Agita
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

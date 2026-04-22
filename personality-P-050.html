@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Darwan Singh Negi</h1>
     <div class="subtitle">Military service and regional inspiration</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,21 +138,20 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>Darwan Singh Negi, a legendary Indian soldier of the British Indian Army, is remembered for his extraordinary bravery during World War I. Born on April 4, 1883, in the small village of Kafarteer, near Chamoli district of Uttarakhand (then part of the United Provinces, British India), he belonged to the Negi clan of the Garhwali Rajputs, a community known for its martial traditions. Negi joined the army at the tender age of 19 as a sepoy and served with distinction during the war.
+    <div id="content-en">Darwan Singh Negi, a legendary Indian soldier of the British Indian Army, is remembered for his extraordinary bravery during World War I. Born on April 4, 1883, in the small village of Kafarteer, near Chamoli district of Uttarakhand (then part of the United Provinces, British India), he belonged to the Negi clan of the Garhwali Rajputs, a community known for its martial traditions. Negi joined the army at the tender age of 19 as a sepoy and served with distinction during the war.
 
 One of his most notable exploits took place on November 11, 1914, during the Battle of Festubert in France. Despite being severely wounded, Negi continued to fight and even helped rescue several British soldiers who were pinned down by enemy fire. His courage and selflessness under heavy fire earned him the highest military decoration for gallantry in the face of the enemy - the Victoria Cross (VC). This historic achievement made him one of the first Indian recipients of the prestigious award.
 
 Negi's remarkable story is a testament to his unwavering commitment to duty and country. After being carried into the Royal Pavilion, Brighton, used as a military hospital, he received medical treatment for his injuries. Despite the odds against him, Negi continued to serve with distinction until the end of World War I. His legacy has endured long after his passing on June 24, 1950, inspiring generations of Indian soldiers and cementing his place in history as one of India's most decorated military heroes.
 
-Throughout his life, Negi embodied the values of courage, duty, and sacrifice that are deeply ingrained in the culture of the Garhwali Rajputs. His remarkable story serves as a reminder of the bravery and resilience of Indian soldiers who have fought for their country throughout its history. Today, Darwan Singh Negi's legacy continues to inspire Indians around the world, serving as a symbol of national pride and a testament to the enduring power of patriotism.</p>
-    <h3>In Hindi</h3>
-    <p>दारवन सिंह नेगी (Darwan Singh Negi), एक प्रसिद्ध भारतीय ब्रिटिश भारतीय सेना के सैनिक, उनके विशाल हिम्मत और दुर्जेयता के लिए यादगार हैं। वे 4 अप्रैल 1883 को उत्तराखंड (तोणी प्रांत, ब्रिटिश भारत) के छोटे गाँव kafरटीर में जन्मे, नेगी का परिवार गढ़वाली राजपूतों के नेगी वंश से जुड़ा था, एक समुदाय जाना जाता है अपनी युद्ध भावना। नेगी 19 की उम्र में आर्मी में शामिल हुए और एक सिपाही के रूप में सेवा की। वे यह युद्धित में अनिश्चितकालीन प्रतिभाओं दिखाते थे।
+Throughout his life, Negi embodied the values of courage, duty, and sacrifice that are deeply ingrained in the culture of the Garhwali Rajputs. His remarkable story serves as a reminder of the bravery and resilience of Indian soldiers who have fought for their country throughout its history. Today, Darwan Singh Negi's legacy continues to inspire Indians around the world, serving as a symbol of national pride and a testament to the enduring power of patriotism.</div>
+    <div id="content-hi" style="display:none">दारवन सिंह नेगी (Darwan Singh Negi), एक प्रसिद्ध भारतीय ब्रिटिश भारतीय सेना के सैनिक, उनके विशाल हिम्मत और दुर्जेयता के लिए यादगार हैं। वे 4 अप्रैल 1883 को उत्तराखंड (तोणी प्रांत, ब्रिटिश भारत) के छोटे गाँव kafरटीर में जन्मे, नेगी का परिवार गढ़वाली राजपूतों के नेगी वंश से जुड़ा था, एक समुदाय जाना जाता है अपनी युद्ध भावना। नेगी 19 की उम्र में आर्मी में शामिल हुए और एक सिपाही के रूप में सेवा की। वे यह युद्धित में अनिश्चितकालीन प्रतिभाओं दिखाते थे।
 
 1914 के नवंबर के 11 तारीख को, फ्रांस में फेस्टूबेर्ट की लड़ाई के दौरान, नेगी गंभीर रूप से घायल हुए। इस बीच में बंदूकों और शारीरिक परेशानियों का खेलने के बावजूद, वह फिर से लड़ने लगे और कई ब्रिटिश सैनिकों को बचाने में मदद करते थे। उनकी दृढ़ भूमिकाएँ और निडरता की राह पर उन्हें विजया क्रॉस (वीसी) प्राप्त हुआ, जो सबसे अधिक प्रतिष्ठित सैन्य सम्मान में सर्वोच्च युद्ध की धार्मिकता के सामने उनकी दुर्जेयता। इस ऐतिहासिक उपलब्धि ने उन्हें एक प्रमुख भारतीय प्राप्त करने वालों में से पहले होने वाले सम्मानित पुरस्कार बन गया।
 
 नेगी का अद्भुत कहानी अपने निष्ठा और देश पर लगातार समर्पण को दर्शाती है। जब उन्हें रॉयल पैलिसे, ब्राइटन (उपयोग में एक सैन्य अस्पताल) में फेरते हुए लाया गया, तो उनकी चोटों के इलाज के लिए दवा निकालने में। नेगी ने युद्ध के अंत तक परिचित करार के बावजूद शानदार सेवा करने किया। यह विरासत उनकी मृत्यु 24 जून 1950 को बनी हुई थी।
 
-नेगी के जीवन ने अपनी महान कहानी ने गढ़वाली राजपूतों के साहस और बलिदान का उदाहरण दिया। उनकी अद्भुत कहानी भारतीय सैनिकों द्वारा अपने देश के लिए लड़े हुए बहादुरी और निरंतरता की याद दिलाती है। आज, दारवन सिंह नेगी की विरासत भारत को प्यार करने वालों के बीच प्रेरणा का एक प्रतीक बन गई है, जिसकी अदृश्यता अंतरराष्ट्रीय स्तर पर एक प्रतिष्ठित सांस्कृतिक धरोहर के रूप में उनकी दुर्जेयता और निडरता की कहानी।</p>
+नेगी के जीवन ने अपनी महान कहानी ने गढ़वाली राजपूतों के साहस और बलिदान का उदाहरण दिया। उनकी अद्भुत कहानी भारतीय सैनिकों द्वारा अपने देश के लिए लड़े हुए बहादुरी और निरंतरता की याद दिलाती है। आज, दारवन सिंह नेगी की विरासत भारत को प्यार करने वालों के बीच प्रेरणा का एक प्रतीक बन गई है, जिसकी अदृश्यता अंतरराष्ट्रीय स्तर पर एक प्रतिष्ठित सांस्कृतिक धरोहर के रूप में उनकी दुर्जेयता और निडरता की कहानी।</div>
   </div>
 
   <div class="sources">
@@ -141,5 +163,21 @@ Throughout his life, Negi embodied the values of courage, duty, and sacrifice th
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

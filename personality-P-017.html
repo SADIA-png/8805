@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Bhairab Datt Pande</h1>
     <div class="subtitle">Civil service and national administration</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,21 +138,20 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>I can't provide information on a person who was born in 1882, but the provided text is about another individual named Bhairab Datt Pande. However, I found more relevant information on Badri Dutt Pandey.
+    <div id="content-en">I can't provide information on a person who was born in 1882, but the provided text is about another individual named Bhairab Datt Pande. However, I found more relevant information on Badri Dutt Pandey.
 
 Badri Dutt Pandey (15 February 1882 – 13 January 1965) was an Indian journalist, freedom fighter, and social reformer. He was a prominent figure in the Indian independence movement and served as a member of Parliament. Born in Haridwar, Uttarakhand, Pandey was instrumental in campaigning against the practice of Nayak Pratha, where members of the Nayak caste would sell their daughters into prostitution for livelihood. His efforts led to legislative action against this practice.
 
 Pandey's work extended beyond social reform, as he also contributed to India's struggle for independence. He served as a Cabinet Secretary to the Union Government from 1972 to 1977 and later held positions such as Governor of West Bengal (1981–1983), Punjab (1983–1984), and Administrator of Chandigarh.
 
-Pandey's commitment to social justice and equality continued throughout his life, making him an important figure in India's history.</p>
-    <h3>In Hindi</h3>
-    <p>मैं 1882 में जन्मे व्यक्ति के बारे में जानकारी प्रदान नहीं कर सकता, लेकिन प्रदान किए गए टेक्स्ट भारतीय व्यक्ति भैराब दत्त पांडे के बारे में है। हालाँकि, मैंने बद्री दत्त पांडे नामक व्यक्ति पर अधिक उपयुक्त जानकारी पाई।
+Pandey's commitment to social justice and equality continued throughout his life, making him an important figure in India's history.</div>
+    <div id="content-hi" style="display:none">मैं 1882 में जन्मे व्यक्ति के बारे में जानकारी प्रदान नहीं कर सकता, लेकिन प्रदान किए गए टेक्स्ट भारतीय व्यक्ति भैराब दत्त पांडे के बारे में है। हालाँकि, मैंने बद्री दत्त पांडे नामक व्यक्ति पर अधिक उपयुक्त जानकारी पाई।
 
 बद्री दत्त पांडे (15 फरवरी 1882 – 13 जनवरी 1965) एक भारतीय पत्रकार, स्वतंत्रता सेनानी, और समाज सुधारक थे। उन्हें भारतीय स्वतंत्रता आंदोलन में एक महत्वपूर्ण व्यक्ति के रूप में जाना जाता है और संसद के सदस्य के रूप में उनकी भूमिका बहुत प्रभावशाली थी। हारिद्वार, उत्तराखंड में पैदा हुए पांडे, नायक प्रथा पर विरोध करते हुए अभियान चलाने में महत्वपूर्ण भूमिका निभाई। यह अभियान उनके द्वारा इस अभ्यास को समाप्त करने में मदद की जिसमें नायक जाति के लोग अपने बेटियों को दुष्प्रस्थित कर उन्हें सामाजिक रूप से शुद्धता के लिए मजबूर करते थे।
 
 पांडे की गतिविधियाँ समाज में भी विस्तृत हुईं, जैसे कि भारतीय स्वतंत्रता की लड़ाई में। उन्होंने 1972 से 1977 तक संघीय सरकार के प्रधान सचिव के रूप में काम किया और बाद में पश्चिम बंगाल (1981-1983), पंजाब (1983-1984), और चंडीगढ़ (अध्यक्ष) के गवर्नर के रूप में भी पद संभाले।
 
-पांडे की जीवन की बाकी कमाई समाज में न्याय और समानता के प्रति उनके लिए एक महत्वपूर्ण व्यक्ति बनाने को समर्पित रही, जिससे उन्हें भारतीय इतिहास में महत्वपूर्ण स्थान दिलाया।</p>
+पांडे की जीवन की बाकी कमाई समाज में न्याय और समानता के प्रति उनके लिए एक महत्वपूर्ण व्यक्ति बनाने को समर्पित रही, जिससे उन्हें भारतीय इतिहास में महत्वपूर्ण स्थान दिलाया।</div>
   </div>
 
   <div class="sources">
@@ -141,5 +163,21 @@ Pandey's commitment to social justice and equality continued throughout his life
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

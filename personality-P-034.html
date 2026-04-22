@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Anandamayi Ma</h1>
     <div class="subtitle">Spiritual-social influence and institutional presence</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>Anandamayi Ma was a revered Indian saint, teacher, and mystic who is considered an incarnation of the Hindu goddess Durga. Born Nirmala Sundari on April 30, 1896, in Kheora, Bangladesh, she belonged to a pious and prestigious brahmin household. Despite being born into a non-affluent family, her early life was marked by spiritual awakening and a deep connection with the divine. Her parents encouraged her spiritual pursuits, which laid the foundation for her future teachings.
+    <div id="content-en">Anandamayi Ma was a revered Indian saint, teacher, and mystic who is considered an incarnation of the Hindu goddess Durga. Born Nirmala Sundari on April 30, 1896, in Kheora, Bangladesh, she belonged to a pious and prestigious brahmin household. Despite being born into a non-affluent family, her early life was marked by spiritual awakening and a deep connection with the divine. Her parents encouraged her spiritual pursuits, which laid the foundation for her future teachings.
 
 As Anandamayi Ma grew in spirituality, she began to experience visions and manifestations of the divine, which led to her recognition as an incarnation of Durga. Her public image was that of a compassionate and humble individual who dedicated her life to spreading love, peace, and spiritual enlightenment. She traveled extensively throughout India, sharing her teachings with seekers from all walks of life. Her message of self-realization, devotion, and inner transformation resonated deeply with people, earning her a significant following.
 
@@ -123,9 +146,8 @@ Ma Anandamayi's teachings emphasized the importance of self-inquiry, love, and s
 
 Anandamayi Ma passed away on August 27, 1982, but her legacy lives on through the numerous ashrams, temples, and communities she established during her lifetime. The Sri Ma Anandamayi Ashram in Kausani, Uttarakhand, India, remains a sacred site for spiritual seekers and a testament to her profound wisdom and spiritual legacy. Her story serves as an inspiration to many, reminding us of the transformative power of love, compassion, and self-realization.
 
-Today, Anandamayi Ma's teachings continue to be shared and celebrated by people from all over the world. Her message of inner transformation and devotion resonates with those seeking a deeper connection with themselves, others, and the universe. As an incarnation of Durga, she embodies the qualities of courage, strength, and compassion, inspiring countless individuals to walk the path of self-realization and spiritual growth.</p>
-    <h3>In Hindi</h3>
-    <p>अनंदामायी माँ एक पूज्य भारतीय संत, शिक्षाप्रदाता और तपस्वी, जिन्हें हिंदू देवी दुर्ग के अवतार के रूप में माना जाता है। उनका जन्म 30 अप्रैल 1896 को बांग्लादेश के खोरा, एक पवित्र और सम्मानित ब्रह्मण परिवार से हुआ था। वह गरीब परिवार से नहीं थीं, लेकिन उनकी बचपन की जिंदगी में आध्यात्मिक जागरण और प्राकृतिक देवता से गहरा सम्बन्ध था।
+Today, Anandamayi Ma's teachings continue to be shared and celebrated by people from all over the world. Her message of inner transformation and devotion resonates with those seeking a deeper connection with themselves, others, and the universe. As an incarnation of Durga, she embodies the qualities of courage, strength, and compassion, inspiring countless individuals to walk the path of self-realization and spiritual growth.</div>
+    <div id="content-hi" style="display:none">अनंदामायी माँ एक पूज्य भारतीय संत, शिक्षाप्रदाता और तपस्वी, जिन्हें हिंदू देवी दुर्ग के अवतार के रूप में माना जाता है। उनका जन्म 30 अप्रैल 1896 को बांग्लादेश के खोरा, एक पवित्र और सम्मानित ब्रह्मण परिवार से हुआ था। वह गरीब परिवार से नहीं थीं, लेकिन उनकी बचपन की जिंदगी में आध्यात्मिक जागरण और प्राकृतिक देवता से गहरा सम्बन्ध था।
 
 उनके माता-पिता ने उनके धार्मिक उदयों को प्रोत्साहित किया, जिससे उनकी भविष्य की शिक्षाओं का आधार बना। अनंदामायी माँ की आध्यात्मिकता में वृद्धि से, वह देवता की विसन और परिकल्पनाओं का अनुभव करने लगीं, जिससे उन्हें दुर्ग की अवतार के रूप में प्रसिद्धि मिली। उनकी जनप्रतिमा एक भावनात्मक और शांतिपूर्ण व्यक्ति थी, जिन्होंने अपना जीवन संगीत, शांति, और आध्यात्मिक चेतना को फैलाने पर समर्पित कर दिया। उन्होंने भारत की व्यापक मार्गदर्शन करते हुए बहुत से लोगों के साथ अपने शिक्षाओं को साझा किया।
 
@@ -133,7 +155,7 @@ Today, Anandamayi Ma's teachings continue to be shared and celebrated by people 
 
 अनंदामायी माँ 27 अगस्त 1982 को अपने जीवन से विदाई कर गई, लेकिन उनकी विरासत विभिन्न आश्रमों, मंदिरों, और समुदायों के रूप में उनके जीवनकाल में स्थापित किए गए कई आध्यात्मिक स्थलों के माध्यम से जीवित है। उत्तराखंड, भारत में कौशानी का श्री मा अनंदामायी आश्रम अभी भी आध्यात्मिक गंतव्य के रूप में पूज्य है, और उनकी अतुलनीय चेतना और आध्यात्मिक विरासत की एक महिमान्वयनक शिक्षा।
 
-आज, अनंदामायी माँ की शिक्षाएं दुनिया भर के लोगों द्वारा साझा की जा रही हैं और उनकी स्थापना विशेष रूप से प्रेरित कर रही हैं। उनकी स्थापत्य प्रक्रिया, जिसने मानवता पर आध्यात्मिक चेतना को बढ़ावा देने की शक्ति को उजागर किया</p>
+आज, अनंदामायी माँ की शिक्षाएं दुनिया भर के लोगों द्वारा साझा की जा रही हैं और उनकी स्थापना विशेष रूप से प्रेरित कर रही हैं। उनकी स्थापत्य प्रक्रिया, जिसने मानवता पर आध्यात्मिक चेतना को बढ़ावा देने की शक्ति को उजागर किया</div>
   </div>
 
   <div class="sources">
@@ -145,5 +167,21 @@ Today, Anandamayi Ma's teachings continue to be shared and celebrated by people 
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

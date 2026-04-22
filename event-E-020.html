@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Tehri Dam Opposition</h1>
     <div class="subtitle">Displacement and environmental justice movement</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>The construction of the Tehri Dam in India's Uttarakhand state has been marred by decades of intense opposition from various stakeholders. One of the primary concerns was the massive displacement of around 100,000 people to make way for the dam, which was built on the Bhagirathi River. The affected communities were largely indigenous and rural, whose livelihoods were severely impacted by the project. Many families had to leave their homes, farms, and ancestral lands, leading to significant social and economic disruption.
+    <div id="content-en">The construction of the Tehri Dam in India's Uttarakhand state has been marred by decades of intense opposition from various stakeholders. One of the primary concerns was the massive displacement of around 100,000 people to make way for the dam, which was built on the Bhagirathi River. The affected communities were largely indigenous and rural, whose livelihoods were severely impacted by the project. Many families had to leave their homes, farms, and ancestral lands, leading to significant social and economic disruption.
 
 Another major criticism leveled against the Tehri Dam was its environmental impact. The dam's construction altered the natural flow of the Bhagirathi River, affecting the local ecosystem and wildlife habitats. The construction of a massive reservoir also raised concerns about water pollution, as silt and sediment from the river would accumulate in the reservoir, posing a threat to aquatic life.
 
@@ -123,13 +146,12 @@ Seismic risks were another major concern surrounding the Tehri Dam. The region i
 
 Environmental organizations also argued that inadequate environmental impact assessments (EIA) were conducted before the dam's construction began. This lack of transparency and public participation raised questions about the project's social and environmental accountability. Critics claimed that alternative solutions, such as smaller dams or renewable energy projects, could have been explored to achieve similar development goals without sacrificing so much of the environment.
 
-The Tehri Dam controversy has had a lasting impact on the region, with ongoing debates about its legacy and long-term effects. The project's history serves as a reminder of the complex interplay between economic development, environmental sustainability, and social justice in large-scale infrastructure projects.</p>
-    <h3>In Hindi</h3>
-    <p>तेहरी बांध के निर्माण में भारत के उत्तराखंड राज्य में कई वर्षों से विभिन्न हितधारकों द्वारा गहरा विरोध रहा है। एक प्रमुख चिंता यह थी कि लगभग 100,000 लोगों को भागिरथी नदी पर बनाई जा रही इस बांध के लिए स्थानांतरित करने के लिए बड़े पैमाने पर शरणार्थी किया गया, जिसे जल्द ही निर्मित किया जाएगा। प्रभावित समुदायों में अधिकांश क्षेत्रीय और ग्रामीण थे, जिनकी जीवनविधि निर्माण परियोजना से बहुत बढ़ी-चढ़ी गई। कई परिवारों को अपने घरों, खेतों और वंशगत भूमि छोड़ना पड़ा, जिससे महत्वपूर्ण सामाजिक और आर्थिक व्यवधान हुआ।
+The Tehri Dam controversy has had a lasting impact on the region, with ongoing debates about its legacy and long-term effects. The project's history serves as a reminder of the complex interplay between economic development, environmental sustainability, and social justice in large-scale infrastructure projects.</div>
+    <div id="content-hi" style="display:none">तेहरी बांध के निर्माण में भारत के उत्तराखंड राज्य में कई वर्षों से विभिन्न हितधारकों द्वारा गहरा विरोध रहा है। एक प्रमुख चिंता यह थी कि लगभग 100,000 लोगों को भागिरथी नदी पर बनाई जा रही इस बांध के लिए स्थानांतरित करने के लिए बड़े पैमाने पर शरणार्थी किया गया, जिसे जल्द ही निर्मित किया जाएगा। प्रभावित समुदायों में अधिकांश क्षेत्रीय और ग्रामीण थे, जिनकी जीवनविधि निर्माण परियोजना से बहुत बढ़ी-चढ़ी गई। कई परिवारों को अपने घरों, खेतों और वंशगत भूमि छोड़ना पड़ा, जिससे महत्वपूर्ण सामाजिक और आर्थिक व्यवधान हुआ।
 
 अन्य एक प्रमुख आलोचना तेहरी बांध के पर्यावरणीय प्रभाव के खिलाफ लगाई गई थी। नदी पर इस बांध का निर्माण प्राकृतिक जल प्रवाह को बदल दिया, जिससे स्थानीय वातावरण और वनस्पति आवासों पर गंभीर प्रभाव पड़ा। बांध बनाने वाले एक बड़े तालाब की निर्मिति के लिए भी चिंताएं उठाई गईं, जिसमें नदी से जमा होने वाले धूल और मिट्टी में प्रदूषण की समस्या शामिल थी, जिससे जलीय जीवन पर खतरा उत्पन्न होता था।
 
-जलधार स्थान पर भूकंप की चिंताएं भी तेहरी बांध के आसपास थीं। इस क्षेत्र में हिमालय की भौगोलिक अस्थिरता के कारण भूकंपों की उच्च संभावना है, जिससे डैम की संरचनात्मक अखंडता और सुरक्षा पर गंभीर चिंताएं उठाई गईं। विभिन्न विशेषज्ञों ने इस परियोजना की लाभदायकता की प्रश्ना उठाने लगे, जिससे यह विचार उठाया गया कि समान विकास लक्ष्यों को प्राप्त करने के लिए छोटे बांध या स्वच्छ ऊर्जा परियोजनाओं की संभावनाएँ हैं।</p>
+जलधार स्थान पर भूकंप की चिंताएं भी तेहरी बांध के आसपास थीं। इस क्षेत्र में हिमालय की भौगोलिक अस्थिरता के कारण भूकंपों की उच्च संभावना है, जिससे डैम की संरचनात्मक अखंडता और सुरक्षा पर गंभीर चिंताएं उठाई गईं। विभिन्न विशेषज्ञों ने इस परियोजना की लाभदायकता की प्रश्ना उठाने लगे, जिससे यह विचार उठाया गया कि समान विकास लक्ष्यों को प्राप्त करने के लिए छोटे बांध या स्वच्छ ऊर्जा परियोजनाओं की संभावनाएँ हैं।</div>
   </div>
 
   <div class="sources">
@@ -141,5 +163,21 @@ The Tehri Dam controversy has had a lasting impact on the region, with ongoing d
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

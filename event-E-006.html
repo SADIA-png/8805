@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Coolie Begar Movement</h1>
     <div class="subtitle">Mass protest against forced unpaid labour</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>The Coolie-Begar movement was a significant non-violent peasant agitation that took place in 1921 in the Kumaon region of British India's United Provinces. The movement was led by Hargovind Pant and Badri Datt Pandey, who were later awarded the titles of 'Jannayak' and 'Kumaon Kesari', respectively, for their efforts. The movement aimed to address the grievances of the local population against the colonial begar system, which mandated unpaid forced labor from locals to transport officials' baggage, provide porters (coolies), and furnish other services without remuneration or adequate notice.
+    <div id="content-en">The Coolie-Begar movement was a significant non-violent peasant agitation that took place in 1921 in the Kumaon region of British India's United Provinces. The movement was led by Hargovind Pant and Badri Datt Pandey, who were later awarded the titles of 'Jannayak' and 'Kumaon Kesari', respectively, for their efforts. The movement aimed to address the grievances of the local population against the colonial begar system, which mandated unpaid forced labor from locals to transport officials' baggage, provide porters (coolies), and furnish other services without remuneration or adequate notice.
 
 The Coolie-Begar movement was sparked during the Uttarayani festival in January 1921. On this occasion, a large gathering of villagers took place at the confluence of the Saryu River and Gomti River, where they collectively protested against the unfair system. The people from different villages came together to demand better treatment and compensation for their labor, which was a significant departure from the traditional practices.
 
@@ -123,9 +146,8 @@ The colonial administration had codified the begar system under British rule, wh
 
 The Coolie-Begar movement was a pioneering effort in addressing the grievances of the local population against colonial exploitation. It marked an important milestone in the struggle for social justice and equality in India. Although the movement ultimately failed to achieve all its goals, it laid the foundation for future movements and struggles for human rights in the country.
 
-In conclusion, the Coolie-Begar movement was a significant non-violent peasant agitation that aimed to address the grievances of the local population against the colonial begar system. The movement highlighted the need for fair labor practices, better treatment of the common man, and social justice, marking an important milestone in India's struggle for equality and human rights.</p>
-    <h3>In Hindi</h3>
-    <p>कूली-बेगार आंदोलन एक महत्वपूर्ण निर्वirodhीय किसान agitation था जो 1921 में ब्रिटिश भारत के यूनाइटेड प्रांत्स, कुमाऊं क्षेत्र में हुआ था। इस आंदोलन की स्थापना हार्गोविंद पंत और बद्री दत्त पांडे ने की थी, जिन्हें बाद में 'जननायक' और 'कुमाऊं केसरी' की उपाधियां दी गईं। आंदोलन ने स्थानीय जनसंख्या के खिलाफ विदेशी सरकारी कूलीज़ प्रणाली पर चिंताएँ उठाईं, जो स्थानीय लोगों से बिना वेतन या उचित सूचना के, अनावश्यक श्रम के लिए कर्मचारियों की सेवाएं देने और मालवाहन सुविधाएँ प्रदान करती थीं।
+In conclusion, the Coolie-Begar movement was a significant non-violent peasant agitation that aimed to address the grievances of the local population against the colonial begar system. The movement highlighted the need for fair labor practices, better treatment of the common man, and social justice, marking an important milestone in India's struggle for equality and human rights.</div>
+    <div id="content-hi" style="display:none">कूली-बेगार आंदोलन एक महत्वपूर्ण निर्वirodhीय किसान agitation था जो 1921 में ब्रिटिश भारत के यूनाइटेड प्रांत्स, कुमाऊं क्षेत्र में हुआ था। इस आंदोलन की स्थापना हार्गोविंद पंत और बद्री दत्त पांडे ने की थी, जिन्हें बाद में 'जननायक' और 'कुमाऊं केसरी' की उपाधियां दी गईं। आंदोलन ने स्थानीय जनसंख्या के खिलाफ विदेशी सरकारी कूलीज़ प्रणाली पर चिंताएँ उठाईं, जो स्थानीय लोगों से बिना वेतन या उचित सूचना के, अनावश्यक श्रम के लिए कर्मचारियों की सेवाएं देने और मालवाहन सुविधाएँ प्रदान करती थीं।
 
 कूली-बेगार आंदोलन उत्तरायणी त्योहार के दौरान जनवरी 1921 में शुरू हुआ। इस अवसर पर, एक बड़े समूह के ग्रामीण नागरिकों का संगम सरयु नदी और गोमती नदी के संगम स्थान पर हुआ, जहां वे सामान्य प्रणाली के खिलाफ एकत्रित रूप से प्रदर्शन करते थे। स्थानीय निवासियों द्वारा अलग-अलग गाँवों से लोग मिलकर बेहतर व्यवहार और मुआवज़े पर काम करने की मांग करते हुए एक महत्वपूर्ण त्याग उठाया।
 
@@ -133,7 +155,7 @@ In conclusion, the Coolie-Begar movement was a significant non-violent peasant a
 
 कूली-बेगार आंदोलन एक महत्वपूर्ण सामाजिक न्याय और समानता की लड़ाई में प्रारंभिक कदम था। हालाँकि आंदोलन सभी अपने लक्ष्यों पर पहुँच नहीं सका, लेकिन यह भारतीय राष्ट्रीय एकता और मानव अधिकारों की लड़ाई में भविष्य के आंदोलनों और संघर्षों के आधार को बनाने में महत्वपूर्ण भूमिका निभाई। 
 
-निष्कर्ष में, कूली-बेगार आंदोलन एक महत्वपूर्ण निर्वiroधीय किसान agitation था जो स्थानीय जनसंख्या के खिलाफ विदेशी सरकारी कूलीज़ प्रणाली पर चिंताएँ उठाईं। आंदोलन ने न्यूनतम श्रम प्रथाओं, आम आदमी के उचित व्यवहार और सामाजिक न्याय की आवश्यकता पर रेखांकित करने में महत्वपूर्ण कदम उठाए, जिससे भारतीय समानता और मानव अधिकारों की लड़ाई में एक महत्वपूर्ण मील का पत्थर बना।</p>
+निष्कर्ष में, कूली-बेगार आंदोलन एक महत्वपूर्ण निर्वiroधीय किसान agitation था जो स्थानीय जनसंख्या के खिलाफ विदेशी सरकारी कूलीज़ प्रणाली पर चिंताएँ उठाईं। आंदोलन ने न्यूनतम श्रम प्रथाओं, आम आदमी के उचित व्यवहार और सामाजिक न्याय की आवश्यकता पर रेखांकित करने में महत्वपूर्ण कदम उठाए, जिससे भारतीय समानता और मानव अधिकारों की लड़ाई में एक महत्वपूर्ण मील का पत्थर बना।</div>
   </div>
 
   <div class="sources">
@@ -145,5 +167,21 @@ In conclusion, the Coolie-Begar movement was a significant non-violent peasant a
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

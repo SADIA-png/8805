@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Har Govind Pant</h1>
     <div class="subtitle">Regional leadership, constitutional public life</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>Har Govind Pant was a prominent figure in India's struggle for independence, serving as a freedom fighter and the founder of the Kumaon Parishad political group in 1915. Born on May 19, 1885, Pant played a crucial role in the Quit India Movement of 1942, where he was the first to be arrested by the British. This act of bravery earned him the nickname "the backbone of Kumaon Congress," highlighting his unwavering commitment to the cause of Indian independence.
+    <div id="content-en">Har Govind Pant was a prominent figure in India's struggle for independence, serving as a freedom fighter and the founder of the Kumaon Parishad political group in 1915. Born on May 19, 1885, Pant played a crucial role in the Quit India Movement of 1942, where he was the first to be arrested by the British. This act of bravery earned him the nickname "the backbone of Kumaon Congress," highlighting his unwavering commitment to the cause of Indian independence.
 
 As a member of the Constituent Assembly of India, Pant represented the interests of the hill districts of United Province, ensuring that their voices were heard and their concerns addressed in the newly formed nation. His contributions extended beyond politics, as he also founded local newspapers with nationalistic ideas, aiming to educate the masses about the importance of political awakening in the country.
 
@@ -123,9 +146,8 @@ Pant's illustrious career was marked by various prominent positions, including s
 
 Pant's contributions to Indian politics and society are a testament to his unwavering commitment to the cause of independence and social change. As a key figure in Uttarakhand's independence movement, he remains an iconic symbol of courage, integrity, and public service. His story serves as a reminder of the importance of grassroots activism, community mobilization, and collective action in bringing about positive change.
 
-In conclusion, Har Govind Pant was a towering figure in India's struggle for freedom and self-determination. Through his tireless efforts to educate, inform, and mobilize the masses, he played a pivotal role in shaping the nation's future. His legacy continues to inspire Indians across generations, serving as a shining example of courage, integrity, and public service.</p>
-    <h3>In Hindi</h3>
-    <p>हर गोविंद पंत एक महान व्यक्ति थे जिन्होंने भारत की स्वतंत्रता की लड़ाई में महत्वपूर्ण भूमिका निभाई और 1915 में कुमाऊं पारिषद राजनीतिक समूह की स्थापना की। उनका जन्म 19 मई, 1885 को हुआ था। पंत ने 1942 की ब्रिटिश छोड़ो आंदोलन में महत्वपूर्ण भूमिका निभाई और उस समय पहले कैदी बनाए गए थे। इस दृढ़ संकल्प को उनकी "कुमाऊं कांग्रेस की हड्डी" नाम से जाना जाता है।
+In conclusion, Har Govind Pant was a towering figure in India's struggle for freedom and self-determination. Through his tireless efforts to educate, inform, and mobilize the masses, he played a pivotal role in shaping the nation's future. His legacy continues to inspire Indians across generations, serving as a shining example of courage, integrity, and public service.</div>
+    <div id="content-hi" style="display:none">हर गोविंद पंत एक महान व्यक्ति थे जिन्होंने भारत की स्वतंत्रता की लड़ाई में महत्वपूर्ण भूमिका निभाई और 1915 में कुमाऊं पारिषद राजनीतिक समूह की स्थापना की। उनका जन्म 19 मई, 1885 को हुआ था। पंत ने 1942 की ब्रिटिश छोड़ो आंदोलन में महत्वपूर्ण भूमिका निभाई और उस समय पहले कैदी बनाए गए थे। इस दृढ़ संकल्प को उनकी "कुमाऊं कांग्रेस की हड्डी" नाम से जाना जाता है।
 
 महसूस प्रदेश के पहाड़ी क्षेत्रों की ओर से पंत ने महासंग्रह समिति में शामिल होकर राजनीतिक पक्षों को व्यक्त करने और उनकी चिंताओं पर ध्यान आकर्षित करने में महत्वपूर्ण भूमिका निभाई। वह स्वतंत्र भारत की गठबंधन में भी महत्वपूर्ण योगदान देने के अलावा, उन्होंने राष्ट्रवादी विचारों वाले स्थानीय समाचार पत्र स्थापित किए, जिसका उद्देश्य देश में राजनीतिक जागरूकता के महत्व को शिक्षित करना।
 
@@ -133,7 +155,7 @@ In conclusion, Har Govind Pant was a towering figure in India's struggle for fre
 
 हर गोविंद पंत ने भारतीय राजनीति और समाज में बदलाव की दिशा में अपना समर्पण बनाए रखने की उनकी असीम योगदान एक साक्ष्य है। उत्तराखंड स्वतंत्रता आंदोलन में विशेष रूप से महत्वपूर्ण व्यक्ति के रूप में, वह चतुराई, अखंडता, और सार्वजनिक सेवा की प्रतीक हैं। उनकी कहानी सकारात्मक परिवर्तन लाने के लिए समुदाय गतिविधि, जागरूकता के समूह, और सामूहिक कार्रवाई में सहभागिता की महत्वपूर्ण भूमिका निभाने का याद दिलाती है।
 
-निष्कर्ष में, हर गोविंद पंत भारत की स्वतंत्रता और आत्मनिर्णय की लड़ाई में एक महान व्यक्ति थे। उनके शिक्षा, जागरूकता, और समुदायों को सक्रिय करने के प्रयासों ने देश के भविष्य को आकार देने में महत्वपूर्ण भूमिका निभाई। उनकी विरासत आगामी पीढ़ियों तक विद्यमान है, एक चमकदार उदाहरण चतुराई, अखंडता, और सार्वजनिक सेवा।</p>
+निष्कर्ष में, हर गोविंद पंत भारत की स्वतंत्रता और आत्मनिर्णय की लड़ाई में एक महान व्यक्ति थे। उनके शिक्षा, जागरूकता, और समुदायों को सक्रिय करने के प्रयासों ने देश के भविष्य को आकार देने में महत्वपूर्ण भूमिका निभाई। उनकी विरासत आगामी पीढ़ियों तक विद्यमान है, एक चमकदार उदाहरण चतुराई, अखंडता, और सार्वजनिक सेवा।</div>
   </div>
 
   <div class="sources">
@@ -145,5 +167,21 @@ In conclusion, Har Govind Pant was a towering figure in India's struggle for fre
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

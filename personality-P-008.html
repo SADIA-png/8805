@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Bhakt Darshan</h1>
     <div class="subtitle">Freedom movement and public service</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>Bhakt Darshan was a prominent Indian politician who played a significant role in the country's early years of independence. Born on February 12, 1912, in Bhaurad, Patti Sambal, Pauri Garhwal, Darshan represented the Garhwal constituency in the Lok Sabha for four consecutive parliaments between 1952 and 1970. He was a member of the Indian National Congress party and served as a Union Minister during his tenure.
+    <div id="content-en">Bhakt Darshan was a prominent Indian politician who played a significant role in the country's early years of independence. Born on February 12, 1912, in Bhaurad, Patti Sambal, Pauri Garhwal, Darshan represented the Garhwal constituency in the Lok Sabha for four consecutive parliaments between 1952 and 1970. He was a member of the Indian National Congress party and served as a Union Minister during his tenure.
 
 Darshan's journey into politics began with his involvement in the 1929 Lahore session of the Congress, where he became a volunteer. Throughout his political career, Darshan maintained strong connections with notable figures like Jawaharlal Nehru and Indira Gandhi. His dedication to public service and commitment to social welfare earned him the title "Karmabhoomi," which translates to "the abode of karma" or "a person who has attained spiritual liberation."
 
@@ -123,9 +146,8 @@ Bhakt Darshan's educational background is also noteworthy. He pursued his underg
 
 In addition to his political pursuits, Darshan is also associated with educational institutions. Bhakt Darshan Government PG College, Jaiharikhal, established in 1972, bears his name. The college offers various undergraduate and postgraduate programs in the fields of Arts, Science, and Commerce. His legacy continues to inspire aspiring individuals in the state of Uttarakhand.
 
-Overall, Bhakt Darshan's remarkable life serves as a testament to the power of education and public service. His contributions to Indian politics and his enduring impact on educational institutions make him an important figure in India's history.</p>
-    <h3>In Hindi</h3>
-    <p>Bhakt Darshan एक प्रमुख भारतीय राजनीतिज्ञ थे जिन्होंने देश की स्वतंत्रता की पहली वर्षों में महत्वपूर्ण भूमिका निभाई। 12 फरवरी, 1912 को Bhaurad, Patti Sambal, पौरी गढ़वाल में जन्मे, डर्शन ने 1952 और 1970 तक चार लगातार संसदों में लोक सभा के गढ़वाल सांसद के रूप में विरोधी का प्रतिनिधित्व किया। वह भारतीय राष्ट्रीय कांग्रेस पार्टी के सदस्य थे और अपने कार्यकाल के दौरान संघीय मंत्री के रूप में कार्य किया।
+Overall, Bhakt Darshan's remarkable life serves as a testament to the power of education and public service. His contributions to Indian politics and his enduring impact on educational institutions make him an important figure in India's history.</div>
+    <div id="content-hi" style="display:none">Bhakt Darshan एक प्रमुख भारतीय राजनीतिज्ञ थे जिन्होंने देश की स्वतंत्रता की पहली वर्षों में महत्वपूर्ण भूमिका निभाई। 12 फरवरी, 1912 को Bhaurad, Patti Sambal, पौरी गढ़वाल में जन्मे, डर्शन ने 1952 और 1970 तक चार लगातार संसदों में लोक सभा के गढ़वाल सांसद के रूप में विरोधी का प्रतिनिधित्व किया। वह भारतीय राष्ट्रीय कांग्रेस पार्टी के सदस्य थे और अपने कार्यकाल के दौरान संघीय मंत्री के रूप में कार्य किया।
 
 दर्शन की राजनीतिक यात्रा 1929 की लाहोर सत्र की शुरुआत से शुरू हुई, जहां वह एक कर्मचारी। अपने राजनीतिक जीवन के दौरान, दर्शन ने प्रसिद्ध व्यक्तियों जैसे जवाहरलाल नेहरू और इंदिरा गांधी से मजबूत संबंध बनाए रखे। उनकी जनसेवा में समर्पण और सामाजिक कल्याण की प्रतिबद्धता उन्हें "कार्मभूमि" का खिताब दिलाई, जिसका अर्थ है "आध्यात्मिक मुक्ति प्राप्त करने वाला व्यक्ति" या "कर्म की भूमि"।
 
@@ -133,7 +155,7 @@ Overall, Bhakt Darshan's remarkable life serves as a testament to the power of e
 
 इसके अलावा, दर्शन शैक्षणिक संस्थानों से भी जुड़े हैं। 1972 में स्थापित भारतीय राजनीतिज्ञ सरकारी पीजी कॉलेज, जयहारीकल, उनके नाम पर है। कॉलेज विभिन्न संकायों में स्नातक और स्नातकोत्तर कोर्स प्रदान करता है, जिसमें कला, विज्ञान और वाणिज्य शामिल हैं। उनकी विरासत उत्तराखंड राज्य के युवाओं को प्रेरित करती है।
 
-अनेकार्थ, भक्त दर्शन की अत्यधिक जिंदगी भारतीय राजनीति और शैक्षणिक संस्थानों में उनके योगदान द्वारा उनकी महत्वपूर्ण स्थिति को दर्शाती है।</p>
+अनेकार्थ, भक्त दर्शन की अत्यधिक जिंदगी भारतीय राजनीति और शैक्षणिक संस्थानों में उनके योगदान द्वारा उनकी महत्वपूर्ण स्थिति को दर्शाती है।</div>
   </div>
 
   <div class="sources">
@@ -145,5 +167,21 @@ Overall, Bhakt Darshan's remarkable life serves as a testament to the power of e
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Devi Datt Pant</h1>
     <div class="subtitle">Science, higher education, institutional building</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>Here are 3-5 informative paragraphs about Devi Datt Pant:
+    <div id="content-en">Here are 3-5 informative paragraphs about Devi Datt Pant:
 
 Devi Datt Pant was a prominent Indian freedom fighter and founder of Bikaner Khadi Bhandar in Bikaner city of Rajasthan state in India. Born on April 11, 1907, in Khantoli, District Bageshwar, Uttarakhand, he played a significant role in the country's struggle for independence. Pant was instrumental in organizing public agitations and struggles, which contributed to the eventual success of the Indian freedom movement.
 
@@ -123,9 +146,8 @@ Pant's contributions to the Indian freedom movement were recognized by his peers
 
 Devi Datt Pant's surname "Pant" or "Panta" is a traditional Brahmin name commonly found in Nepal and the Indian states of Uttarakhand and Maharashtra. The term "Pant" has been passed down through generations as a symbol of honor and cultural identity, reflecting the rich heritage of this prominent family.
 
-Unfortunately, I do not have any other information about Devi Datt Pant.</p>
-    <h3>In Hindi</h3>
-    <p>यहाँ पर देवी डत्त पंत के बारे में 3-5 सामान्य जानकारी वाले पैराग्राफों का हिंदी अनुवाद है:
+Unfortunately, I do not have any other information about Devi Datt Pant.</div>
+    <div id="content-hi" style="display:none">यहाँ पर देवी डत्त पंत के बारे में 3-5 सामान्य जानकारी वाले पैराग्राफों का हिंदी अनुवाद है:
 
 देवी डत्त पंत एक प्रमुख भारतीय स्वतंत्रता सेनानी और बीकानेर खड़ी बhandar के संस्थापक थे। उनका जन्म 11 अप्रैल, 1907 को उत्तराखंड के भागेश्वर जिले के खांतोली में हुआ था। उन्होंने देश की स्वतंत्रता की लड़ाई में महत्वपूर्ण भूमिका निभाई। पंत ने जनता को उत्तेजित करने और संघर्ष करने में मदद करने के लिए सार्वजनिक अभियानों और संघर्षों की संगठन में मदद की। यह उनके देश की स्वतंत्रता आंदोलन में एक महत्वपूर्ण भूमिका निभाई।
 
@@ -133,7 +155,7 @@ Unfortunately, I do not have any other information about Devi Datt Pant.</p>
 
 देवी डत्त पंत का सurnames "पंत" या "पांटा" एक पारंपरिक ब्राह्मण नाम है, जो नेपाल और उत्तराखंड राज्यों में बहुत आम है। "पंत" शब्द, कई पीढ़ियों तक विरासत के रूप में पारित किया गया, संस्कृति और सांस्कृतिक पहचान को दर्शाता है, जिसमें इस प्रमुख परिवार की समृद्ध विरासत शामिल है।
 
-कृपया ध्यान दें कि मेरे पास देवी डत्त पंत के बारे में अन्य जानकारी नहीं है।</p>
+कृपया ध्यान दें कि मेरे पास देवी डत्त पंत के बारे में अन्य जानकारी नहीं है।</div>
   </div>
 
   <div class="sources">
@@ -145,5 +167,21 @@ Unfortunately, I do not have any other information about Devi Datt Pant.</p>
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

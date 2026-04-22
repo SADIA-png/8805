@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Uttarakhand Statehood Movement</h1>
     <div class="subtitle">Regional justice, representation, development imbalance</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,21 +138,20 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>The Uttarakhand Statehood Movement was a long-standing campaign for the formation of a separate state within the undivided state of Uttar Pradesh, which ultimately led to the creation of the Indian state of Uttarakhand in 2000. The movement emerged from the cultural and regional differences between the hilly regions of Garhwal and Kumaon, which had been under the administrative control of Uttar Pradesh for centuries.
+    <div id="content-en">The Uttarakhand Statehood Movement was a long-standing campaign for the formation of a separate state within the undivided state of Uttar Pradesh, which ultimately led to the creation of the Indian state of Uttarakhand in 2000. The movement emerged from the cultural and regional differences between the hilly regions of Garhwal and Kumaon, which had been under the administrative control of Uttar Pradesh for centuries.
 
 The demand for a separate state was driven by various factors, including concerns over environmental degradation, lack of representation, and limited access to resources. The Uttarakhand Kranti Dal, a key organization involved in the movement, championed causes such as justice, environmental conservation, and regional identity. Despite facing numerous challenges and instances of violence, the movement gained momentum in the 1990s, with notable leaders like Prime Minister H.D. Deve Gowda formally announcing the formation of Uttarakhand as a separate state in 1995.
 
 The statehood movement was marked by several instances of violence, including the Khatima firing case, Mussoorie firing case, and Rampur Tiraha (Muzaffarnagar) firing case. However, these incidents ultimately contributed to the government's recognition of the demand for a separate state. The formation of Uttarakhand as a separate entity was a significant milestone in Indian history, recognizing the cultural and regional differences between the hilly regions and providing a platform for their unique identity.
 
-In 2000, after years of struggle, the Government of India officially recognized Uttarakhand as a separate state, paving the way for its integration into the Indian Union. The new state corresponds to the culturally distinct hill regions that were previously part of Uttar Pradesh. Since its formation, Uttarakhand has made significant progress in various areas, including economic development, infrastructure growth, and preservation of its unique cultural heritage.</p>
-    <h3>In Hindi</h3>
-    <p>उत्तराखंड राज्यस्थापना आंदोलन एक लंबे समय तक चलने वाली मांग थी जिसके परिणामस्वरूप उत्तर प्रदेश के एकजुट राज्य में एक अलग राज्य बनाने के लिए, जिसके परिणामस्वरूप भारतीय राज्य उत्तराखंड 2000 में बनाया गया। आंदोलन गढ़वाल और कुमाऊं की पहाड़ी क्षेत्रों के सांस्कृतिक और क्षेत्रीय अंतर को प्रभावित करने वाले लंबे समय से चलने वाले अंतरराष्ट्रीय भेदभाव से उभरा, जो सदियों तक उत्तर प्रदेश के शासन के अधीन थे।
+In 2000, after years of struggle, the Government of India officially recognized Uttarakhand as a separate state, paving the way for its integration into the Indian Union. The new state corresponds to the culturally distinct hill regions that were previously part of Uttar Pradesh. Since its formation, Uttarakhand has made significant progress in various areas, including economic development, infrastructure growth, and preservation of its unique cultural heritage.</div>
+    <div id="content-hi" style="display:none">उत्तराखंड राज्यस्थापना आंदोलन एक लंबे समय तक चलने वाली मांग थी जिसके परिणामस्वरूप उत्तर प्रदेश के एकजुट राज्य में एक अलग राज्य बनाने के लिए, जिसके परिणामस्वरूप भारतीय राज्य उत्तराखंड 2000 में बनाया गया। आंदोलन गढ़वाल और कुमाऊं की पहाड़ी क्षेत्रों के सांस्कृतिक और क्षेत्रीय अंतर को प्रभावित करने वाले लंबे समय से चलने वाले अंतरराष्ट्रीय भेदभाव से उभरा, जो सदियों तक उत्तर प्रदेश के शासन के अधीन थे।
 
 आंदोलन में अलग राज्य बनाने की मांग विभिन्न कारकों द्वारा प्रभावित हुई, जिसमें पर्यावरणीय क्षति, प्रतिनिधित्व की कमी, और संसाधनों तक पहुंच की सीमितता शामिल थी। उत्तराखंड करंटी दल, एक महत्वपूर्ण संगठन जिसमें आंदोलन में शामिल था, न्याय, पर्यावरण संरक्षण, और क्षेत्रीय पहचान के प्रति लड़ाई लड़ी। हालाँकि, कई चुनौतियों और हिंसा की घटनाओं का सामना करते हुए, आंदोलन 1990 के दशक में गति पकड़ा, जिसमें प्रधानमंत्री एच. डी. देव गौड़ा ने 1995 में एक अलग राज्य के रूप में उत्तराखंड की स्थापना की घोषणा की।
 
 राज्यस्थापना आंदोलन विभिन्न हिंसक घटनाओं से भरा, जिसमें खातीमा फायरिंग मामले, मुसूरी फायरिंग मामले, और रामपुर तीराहा (मुजफ्फरनगर) फायरिंग मामले शामिल थे। हालांकि, इन घटनाओं के बावजूद, सरकार ने अलग राज्य की मांग को स्वीकार करने की घोषणा की। उत्तराखंड एक अलग इकाई के रूप में बनाने की जीत एक महत्वपूर्ण मील का पत्थर था, जिसने पहाड़ी क्षेत्रों के सांस्कृतिक और क्षेत्रीय अंतर को पहचाना और उनकी विशिष्ट पहचान का प्लेटफॉर्म प्रदान किया।
 
-2000 में, कई वर्षों के बाद, भारत सरकार ने उत्तराखंड को एक अलग राज्य के रूप में आधिकारिक तौर पर स्वीकृत कर दी, जिससे इसका समावेश भारतीय संघ में हुआ। नई राज्य उत्तराखंड अपनी विशिष्ट सांस्कृतिक विरासत को बनाए रखने, आर्थिक विकास, और संरचनात्मक वृद्धि जैसे क्षेत्रों में महत्वपूर्ण प्रगति हासिल करने का स्थान रखता है।</p>
+2000 में, कई वर्षों के बाद, भारत सरकार ने उत्तराखंड को एक अलग राज्य के रूप में आधिकारिक तौर पर स्वीकृत कर दी, जिससे इसका समावेश भारतीय संघ में हुआ। नई राज्य उत्तराखंड अपनी विशिष्ट सांस्कृतिक विरासत को बनाए रखने, आर्थिक विकास, और संरचनात्मक वृद्धि जैसे क्षेत्रों में महत्वपूर्ण प्रगति हासिल करने का स्थान रखता है।</div>
   </div>
 
   <div class="sources">
@@ -141,5 +163,21 @@ In 2000, after years of struggle, the Government of India officially recognized 
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

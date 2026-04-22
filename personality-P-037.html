@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Mani Singh Rawat</h1>
     <div class="subtitle">Survey tradition and frontier knowledge</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>Here are 3-5 informative paragraphs about Mani Singh Rawat:
+    <div id="content-en">Here are 3-5 informative paragraphs about Mani Singh Rawat:
 
 Mani Singh Rawat, a renowned explorer and cartographer, was born in 1830 in Milan, Pithoragarh, Uttarakhand. He is credited with being one of the first pundits to explore the Himalayas for the British during the Great Trigonometrical Survey (1865-75). Rawat's extensive travels took him to Tibet and southern parts of Russia, where he mapped the trade route through Nepal.
 
@@ -125,9 +148,8 @@ Interestingly, Mani Singh Rawat's journey is closely related to his family. He w
 
 Rawat's legacy extends beyond his own accomplishments, as he paved the way for future generations of explorers and cartographers in India. His work continues to inspire new generations of adventurers and researchers, and his contributions to the field of exploration are still celebrated today.
 
-It is worth noting that there seems to be some confusion between Mani Singh Rawat and Trivendra Singh Rawat, who is the current Chief Minister of Uttarakhand. While both men share a common surname, they were not related and had different careers in politics and governance.</p>
-    <h3>In Hindi</h3>
-    <p>यहाँ मनी सिंह रावत के बारे में तीन-चार जानकारी भरे प्रस्तुति का हिन्दी अनुवाद दिया गया है:
+It is worth noting that there seems to be some confusion between Mani Singh Rawat and Trivendra Singh Rawat, who is the current Chief Minister of Uttarakhand. While both men share a common surname, they were not related and had different careers in politics and governance.</div>
+    <div id="content-hi" style="display:none">यहाँ मनी सिंह रावत के बारे में तीन-चार जानकारी भरे प्रस्तुति का हिन्दी अनुवाद दिया गया है:
 
 मनी सिंह रावत, एक प्रसिद्ध खोजकर्ता और नक्शा-बनाने वाले, 1830 में मिलान, पिथौरागढ़, उत्तराखंड में जन्मे थे। उन्हें ब्रिटिश सरकार द्वारा हिमालय की खोज में पहले पंडितों में से एक माना जाता है, ग्रेट ट्राइगोनॉमीटरिकल सर्वेक्षण (1865-75) के दौरान। रावत की विस्तृत यात्राएं उन्हें तिब्बत और रूस के दक्षिणी भागों तक ले गईं, जहां वह नेपाल के मार्ग से व्यापारी हिस्सा को नक्शा बनाने में सफल रहे।
 
@@ -137,7 +159,7 @@ It is worth noting that there seems to be some confusion between Mani Singh Rawa
 
 रावत की विरासत अपने खुद के उपलब्धियों से परe नहीं है, बल्कि वह भविष्य की पीढ़ियों के खोजकर्ताओं और नक्शा-बनाने वालों को मार्गदर्शन करते हुए आगे बढ़ गई। उनके योगदान अभी भी आज के समय में सम्मानित किए जाते हैं।
 
-यह ध्यान देने योग्य है कि मनी सिंह रावत और त्रिवेण्द्र सिंह रावत के बीच एक विश्वासगम्यता की भ्रम है। दोनों में समान नाम हैं, लेकिन उन्हें संबंधित नहीं थे और राजनीति और प्रशासन में अलग-अलग करियर बनाए।</p>
+यह ध्यान देने योग्य है कि मनी सिंह रावत और त्रिवेण्द्र सिंह रावत के बीच एक विश्वासगम्यता की भ्रम है। दोनों में समान नाम हैं, लेकिन उन्हें संबंधित नहीं थे और राजनीति और प्रशासन में अलग-अलग करियर बनाए।</div>
   </div>
 
   <div class="sources">
@@ -149,5 +171,21 @@ It is worth noting that there seems to be some confusion between Mani Singh Rawa
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

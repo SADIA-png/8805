@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Nityanand Swami</h1>
     <div class="subtitle">State formation era leadership</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>Nityanand Swami was a renowned Indian politician who made history by becoming the first chief minister of the newly formed state of Uttaranchal (now Uttarakhand) on November 9, 2000. Born on December 27, 1927, Swami belonged to the Bharatiya Janata Party (BJP) and served as a senior leader in the party. He played a pivotal role in shaping the political landscape of the state and left an indelible mark on its development.
+    <div id="content-en">Nityanand Swami was a renowned Indian politician who made history by becoming the first chief minister of the newly formed state of Uttaranchal (now Uttarakhand) on November 9, 2000. Born on December 27, 1927, Swami belonged to the Bharatiya Janata Party (BJP) and served as a senior leader in the party. He played a pivotal role in shaping the political landscape of the state and left an indelible mark on its development.
 
 Swami's leadership was marked by his commitment to the welfare of the people, particularly the marginalized sections of society. As the first chief minister of Uttarakhand, he worked tirelessly to uplift the state's economy, infrastructure, and social fabric. His vision for a prosperous and inclusive Uttarakhand resonated with the people, earning him widespread acclaim and respect.
 
@@ -123,9 +146,8 @@ Swami was married to Chandrakanta Swami, with whom he had four daughters. Despit
 
 Swami's tenure as chief minister marked an important chapter in Uttarakhand's history, laying the foundation for the state's growth and development. As a senior leader of the BJP, he played a crucial role in shaping the party's policies and strategies at the national and state levels. Through his leadership, Swami demonstrated unwavering dedication to the principles of governance and public service.
 
-In conclusion, Nityanand Swami was a trailblazing politician who left an enduring impact on the state of Uttarakhand. His commitment to the welfare of the people and his vision for a prosperous future continue to inspire leaders and citizens alike. As we remember his contributions to politics and public service, we honor the legacy of a dedicated leader who put the interests of his people above all else.</p>
-    <h3>In Hindi</h3>
-    <p>नित्यानंद स्वामी एक प्रसिद्ध भारतीय राजनीतिज्ञ थे जिन्होंने 9 नवंबर, 2000 को उत्तराखंड (अब उत्तराखंड) की नई राजधानी बनते हुए पार्टी की पहले मुख्यमंत्री के रूप में इतिहास बनाया। उन्होंने 27 दिसंबर, 1927 को जन्म लिया था, और भारतीय जनता पार्टी (BJP) में एक वरिष्ठ नेता के रूप में सेवा करने वाले हैं। वह एक महत्वपूर्ण भूमिका निभाते हुए राज्य के राजनीतिक दृश्य को आकार देने और उसके विकास पर गहरा असर डालने में प्रमुख थे।
+In conclusion, Nityanand Swami was a trailblazing politician who left an enduring impact on the state of Uttarakhand. His commitment to the welfare of the people and his vision for a prosperous future continue to inspire leaders and citizens alike. As we remember his contributions to politics and public service, we honor the legacy of a dedicated leader who put the interests of his people above all else.</div>
+    <div id="content-hi" style="display:none">नित्यानंद स्वामी एक प्रसिद्ध भारतीय राजनीतिज्ञ थे जिन्होंने 9 नवंबर, 2000 को उत्तराखंड (अब उत्तराखंड) की नई राजधानी बनते हुए पार्टी की पहले मुख्यमंत्री के रूप में इतिहास बनाया। उन्होंने 27 दिसंबर, 1927 को जन्म लिया था, और भारतीय जनता पार्टी (BJP) में एक वरिष्ठ नेता के रूप में सेवा करने वाले हैं। वह एक महत्वपूर्ण भूमिका निभाते हुए राज्य के राजनीतिक दृश्य को आकार देने और उसके विकास पर गहरा असर डालने में प्रमुख थे।
 
 स्वामी की नेतृत्व योजना उनकी लोगों की कल्याण के साथ जुड़ी हुई थी, खासकर समाज के शोषित वर्गों की। उत्तराखंड के पहले मुख्यमंत्री के रूप में, वह राज्य के अर्थव्यवस्था, आधार और सामाजिक ढांचे को मजबूत करने का प्रयास करते हुए लगातार काम करते थे। उनके समृद्धि और जागरूक उत्तराखंड की कल्पना ने लोगों में फैली, इसे बहुत समर्थन और सम्मान मिला।
 
@@ -133,7 +155,7 @@ In conclusion, Nityanand Swami was a trailblazing politician who left an endurin
 
 स्वामी के मुख्यमंत्री के समय का उत्तराखंड के इतिहास में एक महत्वपूर्ण अध्याय था, जिसने राज्य के विकास और वृद्धि के लिए आधार रखा। भारतीय जनता पार्टी के वरिष्ठ नेता के रूप में, उन्होंने देश और राज्य स्तर पर पार्टी की नीतियों और रणनीतियों को आकार देने में एक महत्वपूर्ण भूमिका निभाई। उनके नेतृत्व में स्वामी ने व्यावसायिकता और लोक कल्याण पर अपना समर्पण दिखाया।
 
-निष्कर्ष में, नित्यानंद स्वामी एक प्रगतिशील राजनीतिज्ञ थे जिन्होंने उत्तराखंड पर एक अनुकरणीय प्रभाव छोड़ा। उनकी लोगों की कल्याण और समृद्धि की कल्पना ने आगे चले नेताओं और नागरिकों को प्रेरित किया। सार्वजनिक सेवा में उनकी योगदान को याद करते समय, हम एक समर्पित नेता की विरासत का सम्मान करने के लिए उन्हें स्वीकार करते हैं जिसने अपने लोगों के समूह में हर किसी पर ही ध्यान दिया।</p>
+निष्कर्ष में, नित्यानंद स्वामी एक प्रगतिशील राजनीतिज्ञ थे जिन्होंने उत्तराखंड पर एक अनुकरणीय प्रभाव छोड़ा। उनकी लोगों की कल्याण और समृद्धि की कल्पना ने आगे चले नेताओं और नागरिकों को प्रेरित किया। सार्वजनिक सेवा में उनकी योगदान को याद करते समय, हम एक समर्पित नेता की विरासत का सम्मान करने के लिए उन्हें स्वीकार करते हैं जिसने अपने लोगों के समूह में हर किसी पर ही ध्यान दिया।</div>
   </div>
 
   <div class="sources">
@@ -145,5 +167,21 @@ In conclusion, Nityanand Swami was a trailblazing politician who left an endurin
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>

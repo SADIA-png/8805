@@ -7,19 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#0b0b0b;
-  --surface:#111111;
-  --card:#171717;
-  --card-hover:#202020;
-  --line:#2a2a2a;
-  --line-soft:#3a3a3a;
-  --text:#efefef;
-  --text-soft:#d7d7d7;
-  --muted:#9b9b9b;
-  --muted-2:#7f7f7f;
-  --accent:#f4f4f4;
-  --chip:#1e1e1e;
-  --white:#ffffff;
+  --bg:#FFF8F0;
+  --surface:#C08552;
+  --card:#8C5A3C;
+  --card-hover:#4B2E2B;
+  --line:#C08552;
+  --line-soft:#8C5A3C;
+  --text:#4B2E2B;
+  --text-soft:#8C5A3C;
+  --muted:#C08552;
+  --muted-2:#4B2E2B;
+  --accent:#FFF8F0;
+  --chip:#C08552;
+  --white:#FFF8F0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body {
@@ -52,7 +52,7 @@ body::before {
 }
 h1 {
   font-family:'Playfair Display',serif;
-  color:var(--white);
+  color:#333;
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
   font-weight:400;
@@ -86,6 +86,24 @@ h1 em {font-style:italic;color:#cfcfcf}
   text-transform:uppercase;
   letter-spacing:.1em;
 }
+.lang-toggle {display:flex;gap:10px;margin:20px 0}
+.lang-btn {
+  background:transparent;
+  border:1px solid var(--line-soft);
+  color:var(--muted);
+  padding:6px 12px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:9px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.lang-btn:hover,.lang-btn.on {
+  background:var(--white);
+  border-color:var(--white);
+  color:#0d0d0d;
+}
 </style>
 </head>
 <body>
@@ -99,6 +117,11 @@ h1 em {font-style:italic;color:#cfcfcf}
     <h1>Sunderlal Bahuguna</h1>
     <div class="subtitle">Ecology, anti-dam activism, Himalaya advocacy</div>
   </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn on" id="lang-en">English</button>
+    <button class="lang-btn" id="lang-hi">हिंदी</button>
+  </div>
 
   <div class="detail">
     <h2>Details</h2>
@@ -115,7 +138,7 @@ h1 em {font-style:italic;color:#cfcfcf}
 
   <div class="detail">
     <h2>Generated Paragraphs</h2>
-    <p>Sunderlal Bahuguna was a renowned Indian environmentalist and the pioneer of the Chipko movement, which played a pivotal role in India's conservation efforts. Born on January 9, 1927, in Maroda village near Tehri, Uttarakhand, Bahuguna showed a strong commitment to social causes from an early age. His dedication to fighting injustice and protecting the environment led him to become one of the most influential figures in Indian environmentalism.
+    <div id="content-en">Sunderlal Bahuguna was a renowned Indian environmentalist and the pioneer of the Chipko movement, which played a pivotal role in India's conservation efforts. Born on January 9, 1927, in Maroda village near Tehri, Uttarakhand, Bahuguna showed a strong commitment to social causes from an early age. His dedication to fighting injustice and protecting the environment led him to become one of the most influential figures in Indian environmentalism.
 
 The Chipko movement, which translates to "hug the tree" in Hindi, was a grassroots campaign that aimed to protect India's dwindling forests from logging and destruction. Bahuguna, along with his fellow villagers, took on the powerful Tehri Dam project, which threatened to displace entire communities and destroy their livelihoods. The movement's unique strategy involved physical resistance, including women hugging trees to prevent them from being cut down, thereby drawing international attention to the issue.
 
@@ -123,9 +146,8 @@ Bahuguna's leadership in the Chipko movement led to a significant shift in India
 
 Throughout his life, Bahuguna received numerous awards for his contributions to environmental conservation, including the Padma Bhushan and the Ramon Magsaysay Award. He also wrote several books on environmentalism and social justice, sharing his insights with a wider audience. Bahuguna's passing on May 21, 2021, marks the end of an era in Indian environmental activism, but his work continues to inspire and motivate new generations of leaders and activists.
 
-Despite facing numerous challenges and setbacks throughout his life, Bahuguna remained steadfast in his commitment to protecting India's natural resources. His courage, determination, and vision have left a lasting impact on Indian society, and his legacy will continue to be felt for years to come.</p>
-    <h3>In Hindi</h3>
-    <p>सUNDERलाल बहुगुणा एक प्रसिद्ध भारतीय पर्यावरणविद् थे और चिपको आंदोलन के संस्थापक थे, जिसने भारत में पर्यवेक्षण परिवर्तन की महत्वपूर्ण भूमिका निभाई। 9 जनवरी, 1927 को उत्तराखंड के तेहरी जिले में मारोड़ा गांव में जन्मे, बहुगुणा ने शुरुआती उम्र से समाज सेवा के प्रति मजबूत समर्पण दिखाया। उनकी न्याय और पर्यावरण रक्षा की लड़ाई में समर्पण ने उन्हें भारतीय पर्यावरणवाद में सबसे प्रभावशाली व्यक्तियों में से एक बना दिया।
+Despite facing numerous challenges and setbacks throughout his life, Bahuguna remained steadfast in his commitment to protecting India's natural resources. His courage, determination, and vision have left a lasting impact on Indian society, and his legacy will continue to be felt for years to come.</div>
+    <div id="content-hi" style="display:none">सUNDERलाल बहुगुणा एक प्रसिद्ध भारतीय पर्यावरणविद् थे और चिपको आंदोलन के संस्थापक थे, जिसने भारत में पर्यवेक्षण परिवर्तन की महत्वपूर्ण भूमिका निभाई। 9 जनवरी, 1927 को उत्तराखंड के तेहरी जिले में मारोड़ा गांव में जन्मे, बहुगुणा ने शुरुआती उम्र से समाज सेवा के प्रति मजबूत समर्पण दिखाया। उनकी न्याय और पर्यावरण रक्षा की लड़ाई में समर्पण ने उन्हें भारतीय पर्यावरणवाद में सबसे प्रभावशाली व्यक्तियों में से एक बना दिया।
 
 चिपको आंदोलन, जिसका अर्थ है "पेड़ को पकड़ो" है, एक सहयोग चार्ट था जिसका उद्देश्य भारत की विलुप्त होने वाली पेड़ों से लोहा उधार लेने और नष्ट करने से रोकना था।  तेहरी डैम परियोजना, जो अपने अंदरूनी समुदायों और उनकी livelihoods को बाहर कर रही थी, ने बहुगुणा और उनके साथी ग्रामीणों को शक्तिशाली प्रयास करना पड़ा। आंदोलन की एक अनोखी रणनीति में शारीरिक विरोध, जिसमें महिलाएं पेड़ों को कटाने से रोकने के लिए पेड़ों को हिलाकर अंतरराष्ट्रीय ध्यान आकर्षित करने लगीं, इस मुद्दे पर ध्यान देने का एक मजबूत तरीका शामिल था।
 
@@ -135,7 +157,7 @@ Despite facing numerous challenges and setbacks throughout his life, Bahuguna re
 
 बहुगुणा ने अपने जीवन में कई अवार्ड प्राप्त किए, जिनमें पद्म भूषण और रामोन मैगसेसे अवार्ड शामिल थे, पर्यावरण संरक्षण में उनके योगदान को मान्यता देते हैं। इसके अलावा, उन्होंने सामाजिक न्याय पर कई पुस्तकें लिखीं, जिन्होंने एक व्यापक दर्शक उपस्थिति को आकर्षित किया। 
 
-बहुगुणा की मृत्यु ने भारतीय समाज में उनकी विरासत की महत्वपूर्णता पर प्रकाश डाला, जिसने एक लंबे समय तक चलने वाले सकारात्मक परिवर्तन को बढ़ावा दिया।</p>
+बहुगुणा की मृत्यु ने भारतीय समाज में उनकी विरासत की महत्वपूर्णता पर प्रकाश डाला, जिसने एक लंबे समय तक चलने वाले सकारात्मक परिवर्तन को बढ़ावा दिया।</div>
   </div>
 
   <div class="sources">
@@ -147,5 +169,21 @@ Despite facing numerous challenges and setbacks throughout his life, Bahuguna re
     <a href="heritage_website.html">← Back to Archive</a>
   </div>
 </div>
+
+<script>
+document.getElementById('lang-en').addEventListener('click', () => {
+  document.getElementById('lang-en').classList.add('on');
+  document.getElementById('lang-hi').classList.remove('on');
+  document.getElementById('content-en').style.display = 'block';
+  document.getElementById('content-hi').style.display = 'none';
+});
+
+document.getElementById('lang-hi').addEventListener('click', () => {
+  document.getElementById('lang-hi').classList.add('on');
+  document.getElementById('lang-en').classList.remove('on');
+  document.getElementById('content-hi').style.display = 'block';
+  document.getElementById('content-en').style.display = 'none';
+});
+</script>
 </body>
 </html>
