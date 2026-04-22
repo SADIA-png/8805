@@ -463,7 +463,7 @@ function cardHTML(r) {
         <div class="ref">${r.id}<br>${district || 'N/A'}</div>
         ${badgeKind(r.type)}
       </div>
-      <a class="title" href="${r.related_link}" target="_blank" rel="noopener noreferrer">${name}</a>
+      <a class="title" href="${detailLink}">${name}</a>
       <div class="meta">${headline || 'N/A'}<br>${r.years}</div>
       <div class="desc">${summary || 'N/A'}</div>
       <div class="tags">
