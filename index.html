@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Uttarakhand Himalayan Reform Archive</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:wght@300;400;500;600&family=Sahitya:wght@400;700&family=Khand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:#FFF8F0;
@@ -46,11 +46,11 @@ body::before {
   font-weight:600;
 }
 h1 {
-  font-family:'Playfair Display',serif;
+  font-family:'Khand',sans-serif;
   color:var(--primary);
   font-size:clamp(34px,5vw,66px);
   line-height:1.04;
-  font-weight:400;
+  font-weight:700;
   max-width:950px;
 }
 h1 em {font-style:italic;color:var(--accent)}
@@ -115,7 +115,7 @@ h1 em {font-style:italic;color:var(--accent)}
 .stat {background:var(--bg);padding:18px 20px;border:1px solid var(--border)}
 .stat-num {
   display:block;
-  font-family:'Playfair Display',serif;
+  font-family:'Khand',sans-serif;
   font-size:36px;
   color:var(--primary);
   line-height:1;
@@ -184,7 +184,7 @@ h1 em {font-style:italic;color:var(--accent)}
   display:flex;align-items:center;gap:14px
 }
 .section-title {
-  font-family:'Playfair Display',serif;
+  font-family:'Khand',sans-serif;
   font-size:26px;
   color:var(--primary);
   font-style:italic;
@@ -456,6 +456,9 @@ function cardHTML(r) {
   const headline = currentLanguage === 'en' ? r.headline : r.headline_hi;
   const summary = currentLanguage === 'en' ? r.summary : r.summary_hi;
   const district = currentLanguage === 'en' ? r.district_or_area : r.district_or_area_hi;
+  const isHindi = currentLanguage === 'hi';
+  const titleStyle = isHindi ? "font-family:'Sahitya',serif;" : '';
+  const descStyle = isHindi ? "font-family:'Sahitya',serif;" : '';
   
   return `
     <article class="card">
@@ -463,9 +466,9 @@ function cardHTML(r) {
         <div class="ref">${r.id}<br>${district || 'N/A'}</div>
         ${badgeKind(r.type)}
       </div>
-      <a class="title" href="${detailLink}">${name}</a>
+      <a class="title" href="${detailLink}" style="${titleStyle}">${name}</a>
       <div class="meta">${headline || 'N/A'}<br>${r.years}</div>
-      <div class="desc">${summary || 'N/A'}</div>
+      <div class="desc" style="${descStyle}">${summary || 'N/A'}</div>
       <div class="tags">
         <span class="tag">${regionLabel(r.region)}</span>
         <span class="tag">${themeLabel(r.domain)}</span>
